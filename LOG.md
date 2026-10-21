@@ -1,0 +1,8 @@
+# Reel log (newest last) — read before making a new one; never repeat a concept back-to-back
+
+| Date | File | Animation concept / techniques | Business | Hook → tagline | Status |
+|---|---|---|---|---|---|
+| 2026-10-20 | reels/2026-10-21-sen-yatirsan-sayt-satir.mp4 | story: DM phone → site builds → order → 3D night map (REJECTED: too generic) | generic | Sən yatırsan, sayt satır | TikTok only |
+| 2026-10-21 | reels/2026-10-21-salon-onlayn-novbe.mp4 | same story structure (REJECTED: same type as previous) | salon | Zəng azalır, növbə dolur | not published |
+| 2026-10-21 | reels/2026-10-21-sayt-nece-yaranir.mp4 | "Sayt necə yaranır?": one artboard, 5 stages Eskiz→Dizayn→Kod→Mobil→Yayında, desktop→phone morph (APPROVED) | cafe "Nar Kafe" | Sayt necə yaranır? → Növbəti sayt sənin olsun | IG+TikTok 18:00 |
+| 2026-10-22 | reels/2026-10-22-sen-de-biz-quraq.mp4 | cursor MASCOT with eyes + old 90s site pixel explosion + crane lowers blocks + pixels reassemble into hero image + lime wave paints grey blocks (signature) + 8-bit jingle (APPROVED, owner loved it) | bakery "Şirin Ev" | Saytın hələ də belədir? → Sən de, biz quraq | premade, 18:00 |
