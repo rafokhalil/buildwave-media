@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--bg:#07070C;--panel:#12121B;--line:#2B2B3A;--lime:#C8FF2E;--vio:#7B61FF;--white:#F5F5FA;--muted:#A9A9C2}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+body{font-family:'Inter Display','Inter',sans-serif;font-weight:800;color:var(--white);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#world{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.a{position:absolute}.full{position:absolute;left:0;top:0;width:1080px;height:1920px}.lime{color:var(--lime)}
+#dotsWrap{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;-webkit-mask-image:radial-gradient(ellipse at 50% 46%,#000 25%,transparent 80%)}
+#dots{position:absolute;left:-120px;top:-120px;width:1320px;height:2160px;opacity:.5;background-image:radial-gradient(circle,#30304a 2.4px,transparent 3px);background-size:64px 64px}
+.glow{position:absolute;border-radius:50%}
+#g1{left:-380px;top:-260px;width:1000px;height:1000px;background:radial-gradient(circle,rgba(123,97,255,.22),rgba(123,97,255,0) 66%)}
+#g2{left:420px;top:1120px;width:1000px;height:1000px;background:radial-gradient(circle,rgba(200,255,46,.09),rgba(200,255,46,0) 66%)}
+#vig{background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.6) 100%)}
+#grain{position:absolute;left:0;top:0;width:1080px;height:1920px;opacity:.06}
+#flashL{background:var(--lime);opacity:0}
+.hl{position:absolute;left:90px;top:236px;font-size:100px;line-height:1.08;letter-spacing:-0.035em;white-space:nowrap}
+.hl .ln{display:block}
+.sub{position:absolute;left:94px;top:360px;font-size:48px;color:var(--muted);letter-spacing:-0.02em;white-space:nowrap;opacity:0}
+#hint{left:0;width:1080px;top:1712px;text-align:center;font-size:58px;letter-spacing:-0.025em;opacity:0;white-space:nowrap}
+#cdw{left:812px;top:246px;width:190px;height:190px;opacity:0}
+#cdn{position:absolute;left:0;top:0;width:190px;height:190px;text-align:center;line-height:190px;font-size:110px;color:var(--lime);letter-spacing:-0.04em}
+
+/* phone */
+#phone{position:absolute;left:250px;top:560px;width:580px;height:1100px;border-radius:72px;background:#0B0B12;border:3px solid #3A3A4F;box-shadow:0 50px 140px rgba(0,0,0,.75)}
+#notch{position:absolute;left:220px;top:30px;width:140px;height:30px;border-radius:15px;background:#07070C;z-index:5}
+#scr{position:absolute;left:15px;top:15px;width:544px;height:1064px;border-radius:56px;overflow:hidden;background:#FFFDF8}
+.site{position:absolute;left:0;top:0;width:544px;height:1064px;background:#FFFDF8;font-family:'Poppins',sans-serif;color:#2E2328;overflow:hidden}
+.site .st{position:absolute;left:44px;top:22px;font-size:20px;font-weight:600;color:#2E2328}
+.site .url{position:absolute;left:30px;top:66px;width:484px;height:46px;border-radius:23px;background:#F2ECE6;color:#7A6E73;font-size:20px;font-weight:500;line-height:46px;text-align:center}
+.site .brand{position:absolute;left:30px;top:132px;font-family:'Lora',serif;font-weight:700;font-size:38px;color:#2F5D3A;white-space:nowrap}
+.site .bur{position:absolute;right:34px;top:146px;width:40px;height:26px;border-top:5px solid #2E2328;border-bottom:5px solid #2E2328}
+.site .bur:after{content:'';position:absolute;left:0;top:5px;width:40px;height:5px;background:#2E2328}
+.site .hero{position:absolute;left:20px;top:200px;width:504px;height:330px;border-radius:28px;background:linear-gradient(140deg,#FDE0E6,#F5AFC0);overflow:hidden}
+.site .hero svg{position:absolute;left:112px;top:20px;width:280px;height:300px}
+.site .tt{position:absolute;left:30px;top:548px;font-family:'Lora',serif;font-weight:700;font-size:54px;color:#2E2328;white-space:nowrap}
+.site .sb{position:absolute;left:32px;top:626px;font-size:27px;font-weight:600;white-space:nowrap}
+.site .cd{position:absolute;top:690px;width:242px;height:250px;border-radius:24px;background:#FFF;border:2px solid #F0E4E8}
+.site .cd .ci{position:absolute;left:12px;top:12px;width:214px;height:120px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.site .cd .cn{position:absolute;left:18px;top:142px;font-family:'Lora',serif;font-weight:700;font-size:32px;color:#2E2328}
+.site .cd .cp{position:absolute;left:18px;top:194px;white-space:nowrap}
+.site .lnk{position:absolute;left:32px;top:990px;font-size:15px;font-weight:500;color:#C9C0C4;text-decoration:underline}
+.site .fine{position:absolute;left:110px;top:986px;width:400px;font-size:12px;line-height:1.35;color:#D8D0D3;font-weight:400}
+.site .btn{position:absolute;left:20px;top:962px;width:504px;height:84px;border-radius:42px;background:#2F5D3A;color:#fff;font-size:34px;font-weight:700;text-align:center;line-height:84px}
+#good{clip-path:inset(0 0 0 100%)}
+#lens{position:absolute;left:0;top:0;width:260px;height:260px;border-radius:50%;overflow:hidden;opacity:0;box-shadow:0 0 0 9px #C8FF2E,0 0 0 14px rgba(7,7,12,.6),0 30px 70px rgba(0,0,0,.6);background:#FFFDF8}
+#lensIn{position:absolute;left:0;top:0;width:544px;height:1064px;transform-origin:0 0}
+#lensGl{position:absolute;left:0;top:0;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.55),rgba(255,255,255,0) 35%)}
+#ov{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+.chip{position:absolute;left:0;top:0;width:76px;height:76px;border-radius:50%;background:var(--lime);color:#07070C;font-size:48px;text-align:center;line-height:76px;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.lab{position:absolute;left:0;top:0;height:64px;padding:0 26px;border-radius:32px;background:#07070C;color:var(--lime);font-size:34px;line-height:64px;opacity:0;white-space:nowrap;border:3px solid #C8FF2E}
+#toast{left:300px;top:930px;width:480px;height:84px;border-radius:42px;background:#C8FF2E;color:#07070C;font-size:32px;text-align:center;line-height:84px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#knob{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:50%;background:#C8FF2E;color:#07070C;font-size:44px;text-align:center;line-height:92px;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+#hbar{position:absolute;left:0;top:578px;width:8px;height:1064px;background:#C8FF2E;opacity:0;box-shadow:0 0 18px rgba(200,255,46,.8)}
+.tag{position:absolute;top:690px;height:56px;padding:0 22px;border-radius:28px;font-size:28px;line-height:56px;opacity:0;letter-spacing:.04em}
+#tagB{left:290px;background:#07070C;color:#F5F5FA;border:2px solid #3A3A4F}
+#tagA{left:640px;background:#C8FF2E;color:#07070C}
+#cc{position:absolute;left:0;top:0;width:134px;height:185px;transform-origin:10px 10px;opacity:0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+#ccsh{position:absolute;left:0;top:0;width:90px;height:18px;border-radius:50%;background:rgba(200,255,46,.25);filter:blur(4px);opacity:0}
+#wv{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+
+/* S6/S7 */
+#l6a{left:0;width:1080px;top:760px;text-align:center;font-size:130px;letter-spacing:-0.04em;opacity:0}
+#l6b{left:0;width:1080px;top:900px;text-align:center;font-size:160px;letter-spacing:-0.05em;color:var(--lime);opacity:0;white-space:nowrap}
+#l6s{left:0;width:1080px;top:900px;text-align:center;font-size:160px;letter-spacing:-0.05em;color:transparent;opacity:0;white-space:nowrap;background:linear-gradient(100deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.95) 50%,rgba(255,255,255,0) 58%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text}
+#ul6{left:180px;top:1110px;width:720px;height:12px;border-radius:6px;background:var(--lime);box-shadow:0 0 24px rgba(200,255,46,.9);transform:scaleX(0)}
+#tile7{left:390px;top:520px;width:300px;height:300px;opacity:0}
+#wm7{left:0;width:1080px;top:875px;text-align:center;font-size:136px;letter-spacing:-0.045em;white-space:nowrap}
+#wm7 span{display:inline-block;opacity:0}
+#cta1{left:0;width:1080px;top:1070px;text-align:center;font-size:76px;letter-spacing:-0.03em;opacity:0}
+#cta2{left:0;width:1080px;top:1160px;text-align:center;font-size:104px;letter-spacing:-0.04em;color:var(--lime);opacity:0}
+#pill{left:240px;top:1330px;width:600px;height:112px;border-radius:56px;background:var(--lime);color:#07070C;font-size:54px;text-align:center;line-height:112px;overflow:hidden;opacity:0}
+#shine{position:absolute;top:-10px;left:-200px;width:120px;height:140px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.65),rgba(255,255,255,0));transform:skewX(-20deg)}
+</style>
+</head>
+<body>
+<div id="stage"><div id="world">
+  <div id="dotsWrap"><div id="dots"></div></div>
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+
+  <div class="full" id="sMain">
+    <div class="hl" id="h1"><span class="ln" id="h1a">Bu saytda</span><span class="ln lime" id="h1b">3 səhv tap.</span></div>
+    <div class="a" id="cdw"><svg width="190" height="190" viewBox="0 0 190 190"><circle cx="95" cy="95" r="82" fill="#12121B" stroke="#2B2B3A" stroke-width="10"/><circle id="cdr" cx="95" cy="95" r="82" fill="none" stroke="#C8FF2E" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" transform="rotate(-90 95 95)"/></svg><div id="cdn">3</div></div>
+    <div class="hl" id="mh0"><span class="ln" id="mh0a"><span class="lime">1.</span> Oxunmur</span></div>
+    <div class="hl" id="mh1"><span class="ln" id="mh1a"><span class="lime">2.</span> Qiymət yoxdur</span></div>
+    <div class="hl" id="mh2"><span class="ln" id="mh2a"><span class="lime">3.</span> Düymə yoxdur</span></div>
+    <div class="sub" id="ms0">Rəng solğundur, göz yorulur.</div>
+    <div class="sub" id="ms1">Heç kim zəng edib soruşmur.</div>
+    <div class="sub" id="ms2">Bəs haradan sifariş etsin?</div>
+    <div class="hl" id="h3"><span class="ln" id="h3a">Gəl,</span><span class="ln lime" id="h3b">düzəldək.</span></div>
+    <div class="hl" id="h4"><span class="ln" id="h4a">Fərqi</span><span class="ln lime" id="h4b">gördün?</span></div>
+
+    <div id="phone"><div id="notch"></div><div id="scr"><div class="site" id="bad"></div><div class="site" id="good"></div></div></div>
+    <div id="hbar"></div>
+    <div class="tag" id="tagB">ƏVVƏL</div><div class="tag" id="tagA">SONRA</div>
+    <svg id="wv" viewBox="0 0 1080 1920"><defs><linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="#C8FF2E" stop-opacity="0"/><stop offset=".7" stop-color="#C8FF2E" stop-opacity=".45"/><stop offset="1" stop-color="#C8FF2E" stop-opacity=".95"/></linearGradient></defs>
+      <path id="wband" d="" fill="url(#wg)" opacity="0"/><path id="wline" d="" fill="none" stroke="#C8FF2E" stroke-width="7" stroke-linecap="round" opacity="0" style="filter:drop-shadow(0 0 10px #C8FF2E)"/></svg>
+    <svg id="ov" viewBox="0 0 1080 1920"><g id="circs" fill="none" stroke="#C8FF2E" stroke-width="9" stroke-linecap="round"></g><g id="fxg" stroke-linecap="round"></g>
+      <line id="lh" x1="0" y1="0" x2="0" y2="0" stroke="#C8FF2E" stroke-width="22" stroke-linecap="round" opacity="0"/></svg>
+        <div class="chip" id="cp0">1</div><div class="chip" id="cp1">2</div><div class="chip" id="cp2">3</div>
+    <div id="lens"><div id="lensIn" class="site"></div><div id="lensGl"></div></div>
+    <div class="a" id="toast">Sifariş qəbul olundu ✓</div>
+    <div id="knob">‹ ›</div>
+    <div class="a" id="hint">Tapdın? <span class="lime">Şərhdə yaz.</span></div>
+    <div id="ccsh"></div>
+    <svg id="cc" viewBox="-4 -4 32 44"><g id="ccb"><polygon points="0,0 0,29 8,22 14,35 19,33 13,20 23,20" fill="#F5F5FA" stroke="#07070C" stroke-width="1.6" stroke-linejoin="round"/>
+      <g id="eyes"><ellipse cx="4.6" cy="14.2" rx="2" ry="2.8" fill="#07070C"/><ellipse cx="9.8" cy="16.8" rx="2" ry="2.8" fill="#07070C"/><circle cx="5.2" cy="13.2" r=".7" fill="#fff"/><circle cx="10.4" cy="15.8" r=".7" fill="#fff"/></g></g></svg>
+  </div>
+
+  <div class="full" id="s6"><div class="a" id="l6a">Səhvi</div><div class="a" id="l6b">biz tapaq.</div><div class="a" id="l6s">biz tapaq.</div><div class="a" id="ul6"></div></div>
+
+  <div class="full" id="s7">
+    <svg class="a" id="tile7" viewBox="0 0 64 64" style="overflow:visible">
+      <rect x="1" y="1" width="62" height="62" rx="15" fill="#1E1E2B" stroke="#3A3A4F" stroke-width="1.4"/>
+      <path id="wave7" pathLength="1" d="M10 52 Q 18 44 26 52 T 42 52 T 54 50" fill="none" stroke="#C8FF2E" stroke-width="4" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <g id="cur7" opacity="0"><polygon points="22,11 22,40 30,33 36,46 41,44 35,31 45,31" fill="#F5F5FA" stroke="#F5F5FA" stroke-width="2" stroke-linejoin="round"/>
+        <g id="eyes7"><ellipse cx="26" cy="24.6" rx="1.6" ry="2.2" fill="#07070C"/><ellipse cx="30.4" cy="26.8" rx="1.6" ry="2.2" fill="#07070C"/></g></g>
+    </svg>
+    <svg class="a" style="left:0;top:0;width:1080px;height:1920px;overflow:visible" viewBox="0 0 1080 1920"><g id="spk7" stroke="#C8FF2E" stroke-width="7" stroke-linecap="round"></g><circle id="ring7" cx="0" cy="0" r="0" fill="none" stroke="#C8FF2E" stroke-width="6" opacity="0"/></svg>
+    <div class="a" id="wm7"><span>b</span><span>u</span><span>i</span><span>l</span><span>d</span><span class="lime">w</span><span class="lime">a</span><span class="lime">v</span><span class="lime">e</span></div>
+    <div class="a" id="cta1">Sayt lazımdır?</div><div class="a" id="cta2">Yaz, danışaq.</div>
+    <div class="a" id="pill"><div id="shine"></div>@buildwave.dev</div>
+  </div>
+  <div class="full" id="flashL"></div>
+</div>
+<div class="full" id="vig"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+</div>
+
+<script>
+const T=window.T;const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));const P=(t,t0,d)=>clamp((t-t0)/d);
+const eOC=x=>1-Math.pow(1-x,3),eOQ=x=>1-Math.pow(1-x,5),eIC=x=>x*x*x,eIQ=x=>x*x,eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eOB=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};const lerp=(a,b,p)=>a+(b-a)*p;
+function rnd(seed){let s=seed>>>0;return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+function pop(el,t,t0,o={}){const d=o.d??0.5,y=o.y??40,x=o.x??0,s0=o.s??0.86,b=o.b??0;
+  if(t<t0){el.style.opacity=0;return 0}const p=P(t,t0,d),e=eOB(p),oc=eOC(p);
+  el.style.opacity=eOC(clamp(p*2.4));el.style.transform=`translate(${(1-oc)*x}px,${(1-oc)*y}px) scale(${s0+(1-s0)*e})`;
+  el.style.filter=b?`blur(${(1-eOC(clamp(p*2.2)))*b}px)`:'';return p}
+function show(id,t,a,b){const el=$(id);const on=t>=a&&t<=b;el.style.display=on?'block':'none';return on}
+function hline(el,t,t0,tout,d=.5){if(t<t0){el.style.opacity=0;return}const p=P(t,t0,d);let sc=lerp(1.5,1,eOQ(p)),op=eOC(clamp(p*2.5)),bl=(1-eOC(p))*18,y=0;
+  if(tout!==undefined&&t>tout){const q=eIO(P(t,tout,.35));y=-q*80;op*=1-q;bl+=q*10}
+  el.style.opacity=op;el.style.transformOrigin='0 50%';el.style.transform=`translateY(${y}px) scale(${sc})`;el.style.filter=`blur(${bl}px)`}
+function lines(cx,cy,n,R,len,bp,col,w){let h='';for(let i=0;i<n;i++){const a=i/n*Math.PI*2+.3,r1=R+150*eOC(bp),r2=r1+len*(1-bp);
+  h+=`<line x1="${cx+Math.cos(a)*r1}" y1="${cy+Math.sin(a)*r1}" x2="${cx+Math.cos(a)*r2}" y2="${cy+Math.sin(a)*r2}" stroke="${col}" stroke-width="${w}" opacity="${1-bp}"/>`}return h}
+
+// ---------------- site ----------------
+const BOUQ=`<svg viewBox="0 0 200 214"><path d="M100 206 L40 92 L160 92 Z" fill="#E8C9A0" stroke="#C9A06E" stroke-width="3" stroke-linejoin="round"/>
+<path d="M100 206 L70 92 M100 206 L130 92" stroke="#C9A06E" stroke-width="2"/>
+<g fill="#5C9E5A"><ellipse cx="44" cy="84" rx="26" ry="10" transform="rotate(-30 44 84)"/><ellipse cx="158" cy="82" rx="26" ry="10" transform="rotate(32 158 82)"/><ellipse cx="100" cy="40" rx="9" ry="22"/></g>
+<g><circle cx="70" cy="74" r="26" fill="#D7263D"/><path d="M60 72 q10 -14 20 0 q-8 10 -16 2" fill="none" stroke="#9E1328" stroke-width="3"/>
+<circle cx="130" cy="72" r="26" fill="#F48FB1"/><path d="M120 70 q10 -14 20 0 q-8 10 -16 2" fill="none" stroke="#C2185B" stroke-width="3"/>
+<circle cx="100" cy="58" r="28" fill="#FFD54F"/><path d="M89 56 q11 -15 22 0 q-9 11 -17 2" fill="none" stroke="#E0A800" stroke-width="3"/>
+<circle cx="100" cy="92" r="22" fill="#FFFFFF"/><circle cx="100" cy="92" r="8" fill="#FFC107"/></g>
+<path d="M78 156 q22 14 44 0" fill="none" stroke="#D7263D" stroke-width="7" stroke-linecap="round"/></svg>`;
+const ROSE=`<svg width="84" height="84" viewBox="0 0 64 64"><path d="M32 60 V34" stroke="#3E7D3C" stroke-width="4"/><ellipse cx="22" cy="46" rx="8" ry="4" fill="#5C9E5A" transform="rotate(-30 22 46)"/><circle cx="32" cy="24" r="16" fill="#D7263D"/><path d="M24 22 q8 -11 16 0 q-6 8 -12 2" fill="none" stroke="#9E1328" stroke-width="3"/></svg>`;
+const TULIP=`<svg width="84" height="84" viewBox="0 0 64 64"><path d="M32 60 V34" stroke="#3E7D3C" stroke-width="4"/><ellipse cx="42" cy="46" rx="8" ry="4" fill="#5C9E5A" transform="rotate(30 42 46)"/><path d="M18 14 l7 8 l7 -12 l7 12 l7 -8 v14 q0 12 -14 12 q-14 0 -14 -12z" fill="#FF8A3D"/></svg>`;
+function site(g){return `<div class="st">18:00</div><div class="url">lalecicek.az</div><div class="brand">Lalə Çiçək</div><div class="bur"></div>
+<div class="hero">${BOUQ}</div><div class="tt">Gül buketləri</div>
+<div class="sb" style="color:${g?'#5A4A50':'#F3ECD6'}">Bakı daxili çatdırılma — 2 saata.</div>
+<div class="cd" style="left:20px"><div class="ci" style="background:#FDE3E8">${ROSE}</div><div class="cn">Qızılgül</div>
+ <div class="cp" style="${g?'font-size:32px;font-weight:700;color:#C2185B':'font-size:17px;font-weight:500;color:#BDB3B7'}">${g?'25 ₼':'Qiymət: zəng edin'}</div></div>
+<div class="cd" style="left:282px"><div class="ci" style="background:#FFEBD9">${TULIP}</div><div class="cn">Lalə</div>
+ <div class="cp" style="${g?'font-size:32px;font-weight:700;color:#C2185B':'font-size:17px;font-weight:500;color:#BDB3B7'}">${g?'18 ₼':'Qiymət: zəng edin'}</div></div>
+${g?'<div class="btn" id="sbtn">Sifariş et</div>':'<div class="lnk">əlaqə</div><div class="fine">© Lalə Çiçək. Bütün hüquqlar qorunur. Ünvan, iş saatları və digər məlumat üçün əlaqə bölməsinə keçin.</div>'}`}
+$('bad').innerHTML=site(false);$('good').innerHTML=site(true);$('lensIn').innerHTML=site(false);
+
+// ---------------- geometry ----------------
+const SX=268,SY=578,SW=544,SH=1064,PX=250,PY=560,PW=580,PH=1100;
+// mistakes: circle center/radii (screen), label pos, chip pos
+const MS=[{cx:SX+262,cy:SY+652,rx:262,ry:38,lx:SX+290,ly:SY+690,tip:[SX+520,SY+672]},
+          {cx:SX+272,cy:SY+914,rx:268,ry:34,lx:SX+300,ly:SY+950,tip:[SX+530,SY+930]},
+          {cx:SX+64,cy:SY+1000,rx:72,ry:36,lx:SX+150,ly:SY+920,tip:[SX+110,SY+1022]}];
+const TICKY=[SY+640,SY+905,SY+1004];
+function ellPath(c,seed){const r=rnd(seed);let d='';const n=60,turns=1.18,a0=-2.4;
+  for(let i=0;i<=n;i++){const u=i/n,a=a0+u*turns*Math.PI*2;const k=1+.06*Math.sin(u*9+r()*0.3)+(u>.85?(u-.85)*.5:0);
+    const x=c.cx+Math.cos(a)*c.rx*k*1.04,y=c.cy+Math.sin(a)*c.ry*k*1.12-(u*8);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' '}return d}
+$('circs').innerHTML=MS.map((c,i)=>`<path id="ce${i}" d="${ellPath(c,i*31+7)}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(${[-2,1.5,-6][i]} ${c.cx} ${c.cy})"/>`).join('');
+
+// lens path
+const LR=130,LK=1.8;
+function lensC(t){const u=Math.max(0,t-T.lens0);return[540+150*Math.sin(u*2.3+.6),1130+300*Math.sin(u*1.45-.2)]}
+function handleEnd(c){return[c[0]+(LR+78)*.707,c[1]+(LR+78)*.707]}
+const L5=handleEnd(lensC(T.lens1));
+function waveX(t){return lerp(PX-140,PX+PW+180,eIO(P(t,T.wave0,T.wave1-T.wave0)))}
+function sliderX(t){ // handle x in screen
+  const a=SX+SW-4,c=SX+SW/2,l=SX+70,r=SX+SW-70;
+  if(t<T.slider0)return a;
+  if(t<15.55)return lerp(a,c,eIO(P(t,T.slider0,.45)));
+  if(t<16.25)return lerp(c,l,eIO(P(t,15.55,.7)));
+  if(t<16.95)return lerp(l,r,eIO(P(t,16.25,.7)));
+  return lerp(r,c,eIO(P(t,16.95,.45)))}
+const KY=SY+500;
+const BTN=[SX+272,SY+1004];
+const K=[ // [t0,t1,x0,y0,x1,y1,hop]
+  [5.3,5.62,L5[0],L5[1],MS[0].tip[0],MS[0].tip[1],120],
+  [6.8,7.12,MS[0].tip[0],MS[0].tip[1],MS[1].tip[0],MS[1].tip[1],140],
+  [8.3,8.62,MS[1].tip[0],MS[1].tip[1],MS[2].tip[0],MS[2].tip[1],160],
+  [9.9,10.35,MS[2].tip[0],MS[2].tip[1],PX-120,1690,180],
+  [11.9,12.3,PX+PW+180-10,1690,940,1560,120],
+  [T.toBtn,T.toBtn+.45,940,1560,BTN[0],BTN[1],220],
+  [14.3,14.7,BTN[0],BTN[1],930,1700,160],
+  [14.75,T.slider0,930,1700,SX+SW-4,KY,200],
+  [17.4,17.8,SX+SW/2,KY,1250,700,260]];
+function curState(t){let x=1200,y=1600,rot=0,sx=1,sy=1,vis=t>=T.lens0&&t<17.85,sc=1;
+  if(t>=T.lens0&&t<5.3){const c=handleEnd(lensC(Math.min(t,T.lens1)));x=c[0];y=c[1];rot=-8+Math.sin(t*6)*5;sc=eOB(P(t,T.lens0,.4));
+    return{x,y,rot,sx:sx*sc,sy:sy*sc,vis}}
+  let last=null;for(const k of K){if(t>=k[0])last=k}
+  if(last){const [t0,t1,x0,y0,x1,y1,h]=last;const p=P(t,t0,t1-t0);const e=eIO(p);x=lerp(x0,x1,e);y=lerp(y0,y1,e)-Math.sin(Math.PI*p)*Math.abs(h);
+    if(p<1){sy=1+.18*Math.sin(Math.PI*p);sx=1/sy;rot=Math.sin(Math.PI*p)*(x1>x0?14:-14)}
+    else{const lp=t-t1;if(lp<.18){const k2=Math.sin(Math.PI*lp/.18);sy=1-.25*k2;sx=1+.2*k2}}}
+  // pointing taps when circles draw
+  for(const c of T.circ){if(t>=c&&t<c+.3){const q=Math.sin(Math.PI*P(t,c,.3));sy*=1-.22*q;sx*=1+.15*q}}
+  // idle bob
+  if((t>6.1&&t<6.8)||(t>7.6&&t<8.3)||(t>9.1&&t<9.9)||(t>12.5&&t<T.toBtn)||(t>14.7&&t<14.75)){y+=Math.sin(t*6)*5;rot=Math.sin(t*2.6)*7}
+  // surf the wave
+  if(t>=10.35&&t<11.9){const wx=waveX(Math.max(t,T.wave0));x=wx-10;y=1690+Math.sin(t*12)*6;rot=-18+Math.sin(t*9)*8}
+  // click
+  if(t>=T.click&&t<T.click+.25){const q=Math.sin(Math.PI*P(t,T.click,.25));sy=1-.25*q;sx=1+.15*q}
+  // drag the slider
+  if(t>=T.slider0&&t<17.4){x=sliderX(t);y=KY;const v=sliderX(t+.02)-sliderX(t);rot=clamp(v*2,-18,18)}
+  return{x,y,rot,sx,sy,vis}}
+
+const gctx=$('grain').getContext('2d');const gimg=gctx.createImageData(540,960);
+function grain(fr){const r=rnd(fr*7919+13);const d=gimg.data;for(let i=0;i<d.length;i+=4){const v=r()*255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gctx.putImageData(gimg,0,0)}
+const SH2=[[T.hookA+.05,8],...T.circ.map(c=>[c,9]),[T.wave0+.6,6],[T.click,7],[T.drop,22],[T.t6b,14],[T.tile,10],[T.click2,10],...T.cd.map(c=>[c,5])];
+
+function render(t){
+  $('dots').style.transform=`translate(${-t*12}px,${-t*20}px)`;
+  $('g1').style.transform=`translate(${Math.sin(t*.5)*70}px,${Math.cos(t*.4)*60}px)`;$('g2').style.transform=`translate(${Math.cos(t*.45)*70}px,${Math.sin(t*.35)*70}px)`;
+  let sx=0,sy=0;for(const [t0,a] of SH2){const d=t-t0;if(d>0&&d<.35){const k=Math.pow(1-d/.35,2);sx+=Math.sin(d*97)*a*k;sy+=Math.cos(d*83)*a*.6*k}}
+  $('world').style.transform=`translate(${sx}px,${sy}px)`;grain(Math.round(t*60));
+  let fl=0;for(const [t0,a] of [[T.drop,.38],[T.t6b,.2],[T.wave0+.6,.08]]){const d=t-t0;if(d>=0&&d<.35)fl=Math.max(fl,a*(1-d/.35))}$('flashL').style.opacity=fl;
+
+  if(show('sMain',t,0,18.1)){
+    // headlines
+    hline($('h1a'),t,T.hookA,T.hookOut,.22);hline($('h1b'),t,T.hookB,T.hookOut,.22);
+    for(let i=0;i<3;i++){hline($('mh'+i+'a'),t,T.m[i],T.mOut[i],.4);
+      const s=$('ms'+i);if(t<T.m[i]+.15||t>T.mOut[i]+.35)s.style.opacity=0;else{const p=eOC(P(t,T.m[i]+.15,.35)),q=eIO(P(t,T.mOut[i],.3));s.style.opacity=p*(1-q);s.style.transform=`translateY(${(1-p)*24-q*60}px)`}}
+    hline($('h3a'),t,T.fixA,T.fixOut,.4);hline($('h3b'),t,T.fixB,T.fixOut,.4);
+    hline($('h4a'),t,T.cmp,T.outro0,.4);hline($('h4b'),t,T.cmp+.25,T.outro0,.4);
+    // countdown
+    const cw=$('cdw');if(t<T.cd[0]-.15||t>T.hookOut+.35)cw.style.opacity=0;else{const p=eOB(P(t,T.cd[0]-.15,.4)),q=eIO(P(t,T.hookOut,.35));cw.style.opacity=clamp(p)*(1-q);cw.style.transform=`scale(${.5+.5*p}) translateY(${-q*80}px)`}
+    const n=t<T.cd[1]?3:t<T.cd[2]?2:t<T.cdEnd?1:0;$('cdn').textContent=n;
+    const lc=[...T.cd,T.cdEnd].reduce((a,c)=>t>=c?c:a,T.cd[0]);const bp=P(t,lc,.25);$('cdn').style.transform=`scale(${1+.35*(1-eOC(bp))})`;
+    $('cdr').style.strokeDashoffset=clamp((t-T.cd[0])/(T.cdEnd-T.cd[0]));
+    // hint
+    const hn=$('hint');if(t<T.hint||t>T.hookOut+.4)hn.style.opacity=0;else{const p=eOC(P(t,T.hint,.4)),q=eIO(P(t,T.hookOut,.35));hn.style.opacity=p*(1-q);hn.style.transform=`translateY(${(1-p)*30+q*30}px)`}
+    // phone in + outro
+    const ph=$('phone');const ip=eOC(P(t,0,.45));const zo=eIC(P(t,T.outro0,.6));
+    const pT=`translateY(${(1-ip)*90}px) scale(${(.95+.05*ip)*(1-zo*.3)})`;ph.style.opacity=ip*(1-zo);ph.style.transformOrigin='290px 550px';ph.style.transform=pT;
+    // good layer clip: wave (wobbly) or slider
+    const gd=$('good');let clip='inset(0 0 0 100%)';
+    if(t>=T.wave0&&t<T.slider0){const wx=waveX(t);if(t>=T.wave1)clip='none';else{let pts=[];for(let y=0;y<=SH;y+=40){const xx=wx+Math.sin((y+SY)*.018+t*10)*26-SX;pts.push(`${xx.toFixed(1)}px ${y}px`)}clip=`polygon(0 0,${pts.join(',')},0 ${SH}px)`}}
+    else if(t>=T.slider0){const hx=sliderX(t)-SX;clip=`inset(0 0 0 ${hx}px)`}
+    gd.style.clipPath=clip;
+    // circles + labels + chips
+    for(let i=0;i<3;i++){const ce=$('ce'+i);const dp=eOC(P(t,T.circ[i],.4));let op=1;
+      if(t>=T.wave0){const wx=waveX(t);op=1-clamp((wx-(MS[i].cx-MS[i].rx))/120)}
+      ce.style.strokeDashoffset=1-dp;ce.setAttribute('opacity',t<T.circ[i]?0:op);
+            // chips: numbers on circle, then ticks at right edge
+      const cp=$('cp'+i);
+      if(t<T.ticks[i]){pop(cp,t,T.circ[i]+.1,{y:0,s:.3,d:.45});cp.textContent=i+1;cp.style.left=(PX-38)+'px';cp.style.top=(MS[i].cy-38)+'px';
+        if(t>=T.wave0){cp.style.opacity=Math.min(+cp.style.opacity||0,op)}}
+      else{pop(cp,t,T.ticks[i],{y:0,s:.2,d:.5});cp.innerHTML='<svg width="76" height="76" viewBox="0 0 76 76"><path d="M22 39 l11 11 l21 -24" fill="none" stroke="#07070C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        cp.style.left=(PX+PW-38)+'px';cp.style.top=(TICKY[i]-38)+'px';const q=eIO(P(t,T.slider0-.4,.4));cp.style.opacity=(+cp.style.opacity)*(1-q)}}
+    // lens
+    const ln=$('lens');if(t<T.lens0||t>T.lens1+.35){ln.style.opacity=0;$('lh').setAttribute('opacity',0)}else{const c=lensC(Math.min(t,T.lens1));const pi=eOB(P(t,T.lens0,.45)),po=eIC(P(t,T.lens1,.35));const s=Math.max(.01,pi*(1-po));
+      ln.style.opacity=1;ln.style.left=(c[0]-LR)+'px';ln.style.top=(c[1]-LR)+'px';ln.style.transform=`scale(${s})`;
+      const li=$('lensIn');li.style.left=(LR-(c[0]-SX)*LK)+'px';li.style.top=(LR-(c[1]-SY)*LK)+'px';li.style.transform=`scale(${LK})`;
+      const lh=$('lh');const a=[c[0]+LR*.707*s+4,c[1]+LR*.707*s+4],b=handleEnd(c);lh.setAttribute('x1',a[0]);lh.setAttribute('y1',a[1]);lh.setAttribute('x2',lerp(a[0],b[0],s));lh.setAttribute('y2',lerp(a[1],b[1],s));lh.setAttribute('opacity',s>.05?1:0)}
+    // wave
+    const wb=$('wband'),wl=$('wline');
+    if(t>=T.wave0-.05&&t<T.wave1+.4){const wx=waveX(t);const fade=1-P(t,T.wave1,.4);let d='',dl='';const top=PY-20,bot=PY+PH+20;
+      for(let y=top;y<=bot;y+=20){const xx=wx+Math.sin(y*.018+t*10)*26;d+=(y===top?`M${wx-260} ${top} L`:'L')+`${xx} ${y} `;dl+=(y===top?'M':'L')+`${xx} ${y} `}
+      d+=`L${wx-260} ${bot} Z`;wb.setAttribute('d',d);wl.setAttribute('d',dl);wb.setAttribute('opacity',fade);wl.setAttribute('opacity',fade);wl.style.strokeDasharray='';wl.style.strokeDashoffset=0}
+    else if(t>=T.wave1+.4&&t<T.outro0+.5){let dl='';for(let x=PX-10;x<=PX+PW+10;x+=12){dl+=(x===PX-10?'M':'L')+`${x} ${PY+PH+40+Math.sin(x*.02-t*4)*8}`}
+      const q=eOC(P(t,T.wave1+.4,.5));wl.setAttribute('d',dl);wl.setAttribute('opacity',q*(1-eOC(P(t,T.outro0,.4))));wl.style.strokeDasharray='2000';wl.style.strokeDashoffset=2000*(1-q);wb.setAttribute('opacity',0)}
+    else{wb.setAttribute('opacity',0);wl.setAttribute('opacity',0)}
+    // fx
+    let fx='';
+    T.circ.forEach((c,i)=>{if(t>=c&&t<c+.5)fx+=lines(MS[i].tip[0],MS[i].tip[1],8,20,30,P(t,c,.5),'#C8FF2E',5)});
+    T.ticks.forEach(c=>{if(t>=c&&t<c+.5)fx+=lines(PX+PW,TICKY[T.ticks.indexOf(c)],8,30,30,P(t,c,.5),'#C8FF2E',5)});
+    if(t>=T.click&&t<T.click+.9){const q=P(t,T.click,.9);const r=rnd(5);for(let i=0;i<28;i++){const a=r()*Math.PI*2,sp=200+r()*380;const x=BTN[0]+Math.cos(a)*sp*q,y=BTN[1]+Math.sin(a)*sp*q+420*q*q;
+      const c=['#D7263D','#F48FB1','#FFD54F','#C8FF2E','#F5F5FA'][i%5];fx+=`<ellipse cx="${x}" cy="${y}" rx="11" ry="6" fill="${c}" opacity="${1-q}" transform="rotate(${q*500*(i%2?1:-1)+i*20} ${x} ${y})"/>`}}
+    $('fxg').innerHTML=fx;
+    // site button press
+    const sb=document.querySelector('#good #sbtn');if(sb){const q=t>=T.click&&t<T.click+.25?Math.sin(Math.PI*P(t,T.click,.25)):0;sb.style.transform=`scale(${1-.06*q})`;sb.style.background=t>=T.click&&t<T.slider0?'#3E7D3C':'#2F5D3A'}
+    // toast
+    const ts=$('toast');pop(ts,t,T.toast,{d:.45,y:30,s:.7});if(t>14.6){ts.style.opacity=(+ts.style.opacity)*(1-P(t,14.6,.35))}
+    // slider handle
+    const hb=$('hbar'),kb=$('knob');if(t<T.slider0||t>T.outro0+.3){hb.style.opacity=0;kb.style.opacity=0}else{const hx=sliderX(t);const o=eOC(P(t,T.slider0,.2))*(1-P(t,T.outro0,.3));
+      hb.style.opacity=o;hb.style.left=(hx-4)+'px';kb.style.opacity=o;kb.style.left=(hx-48)+'px';kb.style.top=(KY-48)+'px'}
+    for(const [id,d] of [['tagB',0],['tagA',.12]]){const e=$(id);pop(e,t,T.slider0+.3+d,{y:20,s:.6,d:.4});if(t>T.outro0)e.style.opacity=(+e.style.opacity)*(1-P(t,T.outro0,.3))}
+    // cursor character
+    const c=curState(t);const cc=$('cc');const S=4.2;
+    cc.style.opacity=c.vis?1:0;
+    cc.style.transform=`translate(${c.x-10}px,${c.y-10}px) rotate(${c.rot}deg) scale(${c.sx},${c.sy})`;
+    const bl=(t%2.7)<.12;$('eyes').setAttribute('transform',bl?'translate(0 13.3) scale(1 .15)':'');
+    const sh=$('ccsh');sh.style.opacity=c.vis&&c.y>1500?.8:0;sh.style.transform=`translate(${c.x-20}px,${Math.max(c.y+150,1700)}px)`;
+  }
+
+  if(show('s6',t,T.drop-.05,20.05)){const slam=(e,t0,s0)=>{if(t<t0){e.style.opacity=0;return}const p=P(t,t0,.38);
+      e.style.opacity=eOC(clamp(p*2.5));e.style.transform=`scale(${lerp(s0,1,eOQ(p))})`;e.style.filter=`blur(${(1-eOC(p))*22}px)`};
+    slam($('l6a'),T.drop,1.7);slam($('l6b'),T.t6b,1.9);
+    const ls=$('l6s');ls.style.opacity=t>=T.sweep?1:0;ls.style.backgroundPosition=`${lerp(140,-40,eIO(P(t,T.sweep,.75)))}% 0`;
+    $('ul6').style.transform=`scaleX(${eOC(P(t,T.sweep+.1,.5))})`;
+    const s6=$('s6'),xo=eIO(P(t,T.s6_out,.35));s6.style.opacity=1-xo;s6.style.transform=`scale(${1-.12*xo})`;s6.style.filter=xo>0?`blur(${xo*14}px)`:'';
+    $('l6b').style.textShadow=`0 0 ${40*Math.max(0,1-P(t,T.t6b,.6))+12}px rgba(200,255,46,.45)`}
+
+  if(show('s7',t,T.streak2-.02,24)){const s7=$('s7');s7.style.transformOrigin='540px 900px';s7.style.transform=`scale(${1+.035*eOC(P(t,T.tile,4))})`;
+    const tw=$('tile7');if(t<T.tile)tw.style.opacity=0;else{const p=P(t,T.tile,.6);let sc=.4+.6*eOB(p);const cp=P(t,T.click2,.35);if(cp>0&&cp<1)sc*=1+.07*Math.sin(cp*Math.PI);
+      tw.style.opacity=eOC(clamp(p*2.5));tw.style.transform=`scale(${sc}) rotate(${(1-eOC(p))*-14}deg)`}
+    $('wave7').style.strokeDashoffset=1-eOC(P(t,T.wave2_0,T.wave2_1-T.wave2_0));
+    const cg=$('cur7');if(t<T.cur0)cg.setAttribute('opacity',0);else{const p=eOC(P(t,T.cur0,T.cur1-T.cur0));const dx=(1-p)*-60,dy=(1-p)*90-Math.sin(p*Math.PI)*30;let sc=1;const cp=P(t,T.click2,.2);if(cp>0&&cp<1)sc=1-.14*Math.sin(cp*Math.PI);
+      cg.setAttribute('opacity',eOC(clamp((t-T.cur0)/.15)));cg.setAttribute('transform',`translate(${dx} ${dy}) translate(22 11) rotate(${(1-p)*-200}) scale(${sc}) translate(-22 -11)`)}
+    const bl=(t%2.7)<.12;$('eyes7').setAttribute('transform',bl?'translate(0 22) scale(1 .12)':'');
+    const tipX=390+22*300/64,tipY=520+11*300/64;const bp=P(t,T.click2,.7),ring=$('ring7');
+    $('spk7').innerHTML=(t>=T.click2&&bp<1)?lines(tipX,tipY,10,60,70,bp,'#C8FF2E',7):'';
+    if(t<T.click2||bp>=1)ring.setAttribute('opacity',0);else{ring.setAttribute('cx',tipX);ring.setAttribute('cy',tipY);ring.setAttribute('r',30+190*eOC(bp));ring.setAttribute('opacity',(1-bp)*.9)}
+    [...$('wm7').children].forEach((e,i)=>pop(e,t,T.wm+i*.06,{y:60,s:.7,d:.5,b:8}));
+    pop($('cta1'),t,T.cta1,{y:40,d:.55,b:8});pop($('cta2'),t,T.cta2,{y:50,s:.8,d:.6,b:8});pop($('pill'),t,T.pill,{y:50,s:.7,d:.6});
+    let shp=P(t,T.pill+.45,.7);if(t>T.pill+1.6)shp=P(t,T.pill+1.6,.7);$('shine').style.transform=`skewX(-20deg) translateX(${lerp(0,900,eIO(shp))}px)`}
+}
+window.render=render;render(0);
+</script>
+</body>
+</html>
