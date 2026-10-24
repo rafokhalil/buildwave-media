@@ -6,6 +6,8 @@
   "caption_instagram": "1 sayt, 3 stil. Sən hansını seçərdin?\nŞərhdə yaz: 1, 2, yoxsa 3?\n\n#keşfet #kesfet #baku #azerbaycan #biznes #sayt #sahibkar #webdizayn #bərbər",
   "caption_tiktok": "1 sayt, 3 stil. Sən hansını seçərdin?\nŞərhdə yaz: 1, 2, yoxsa 3?\n\n#keşfet #kesfet #fyp #baku #azerbaycan #biznes #sayt #sahibkar #webdizayn #bərbər",
   "cover_ms": 1000,
-  "tiktok_scheduled_in_metricool": false,
-  "instagram_published": false
+  "tiktok_scheduled_in_metricool": true,
+  "instagram_published": false,
+  "tiktok_metricool_id": 404996564,
+  "instagram_container_id": "18143878276562017"
 }
