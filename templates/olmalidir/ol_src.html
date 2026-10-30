@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<style>
+{{CSS_BASE}}
+.hl{font-size:96px}
+.sub{top:470px}
+#ck{position:absolute;left:120px;top:600px;width:840px;height:420px;border-radius:40px;background:#12121B;border:3px solid #2B2B3A;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.rw{position:absolute;left:0;width:840px;height:110px}
+.bx{position:absolute;left:30px;top:20px;width:70px;height:70px;border-radius:20px;border:5px solid #3A3A4F;box-sizing:border-box;background:#1E1E2B}
+.bx svg{position:absolute;left:4px;top:4px;width:52px;height:52px}
+.rt{position:absolute;left:130px;top:0;line-height:110px;font-size:46px;letter-spacing:-0.02em;white-space:nowrap;color:#F5F5FA}
+.sk{position:absolute;left:130px;top:38px;height:34px;border-radius:17px;background:linear-gradient(90deg,#2B2B3A 0%,#2B2B3A 35%,#3A3A4F 50%,#2B2B3A 65%,#2B2B3A 100%);background-size:300% 100%}
+#zn{position:absolute;left:120px;top:1080px;width:840px;height:560px;border-radius:40px;background:#12121B;border:3px solid #2B2B3A;overflow:hidden;opacity:0;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.zs{position:absolute;left:0;top:0;width:834px;height:554px}
+#zhd{position:absolute;left:0;top:0;width:834px;height:96px;background:#1E1E2B;border-bottom:2px solid #2B2B3A}
+#zhd .av{position:absolute;left:28px;top:20px;width:56px;height:56px;border-radius:28px;background:#7B61FF}
+#zhd .nm{position:absolute;left:104px;top:0;line-height:96px;font-size:36px;letter-spacing:-0.02em}
+#zhd .tm{position:absolute;right:30px;top:0;line-height:96px;font-size:36px;color:#A9A9C2;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:14px}
+.bb{position:absolute;left:28px;height:86px;padding:0 34px;border-radius:43px 43px 43px 12px;background:#F5F5FA;color:#07070C;font-family:'Poppins',sans-serif;font-weight:600;font-size:34px;line-height:86px;white-space:nowrap;opacity:0;transform-origin:0 100%}
+.dt{position:absolute;left:28px;width:120px;height:62px;border-radius:31px;background:#2B2B3A;opacity:0}
+.dt i{position:absolute;top:24px;width:14px;height:14px;border-radius:7px;background:#A9A9C2}
+#unr{position:absolute;left:28px;top:470px;font-size:32px;color:#A9A9C2;opacity:0;white-space:nowrap}
+.qp{position:absolute;left:0;top:0;width:200px;height:72px;border-radius:36px;background:#F5F5FA;color:#07070C;font-family:'Poppins',sans-serif;font-weight:700;font-size:32px;line-height:72px;text-align:center;opacity:0}
+.qp.v{background:#7B61FF;color:#F5F5FA}
+#qn{position:absolute;right:22px;top:20px;width:120px;height:100px;border-radius:50px;background:#C8FF2E;color:#07070C;font-size:50px;text-align:center;line-height:100px;opacity:0;font-variant-numeric:tabular-nums}
+#zm svg{position:absolute;left:0;top:0}
+.qm{position:absolute;width:80px;height:80px;border-radius:40px;background:#C8FF2E;color:#07070C;font-size:54px;text-align:center;line-height:80px;opacity:0}
+#pin{position:absolute;left:0;top:0;width:90px;height:120px;transform-origin:45px 116px}
+#wvb{position:absolute;left:0;top:560px;width:180px;height:1120px;opacity:0;background:linear-gradient(90deg,rgba(200,255,46,0),rgba(200,255,46,.45) 70%,#C8FF2E 92%,rgba(200,255,46,0));filter:blur(2px)}
+#wvl{position:absolute;left:0;top:560px;width:12px;height:1120px;border-radius:6px;background:#C8FF2E;box-shadow:0 0 34px #C8FF2E;opacity:0}
+.phone{position:absolute;top:620px;left:315px;width:450px;height:880px;border-radius:62px;background:#0B0B12;border:3px solid #3A3A4F;box-shadow:0 40px 120px rgba(0,0,0,.7);transform-origin:225px 440px;opacity:0}
+.notch{position:absolute;left:165px;top:24px;width:120px;height:26px;border-radius:13px;background:#07070C;z-index:5}
+.scr{position:absolute;left:12px;top:12px;width:426px;height:856px;border-radius:50px;overflow:hidden;background:#FFFFFF}
+.site{position:absolute;left:0;top:0;width:426px;height:856px;background:#FFF8F0;font-family:'Poppins',sans-serif;color:#2A1F17;overflow:hidden}
+.site .st{position:absolute;left:40px;top:18px;font-size:17px;font-weight:600}
+.site .url{position:absolute;left:22px;top:54px;width:382px;height:40px;border-radius:20px;background:#F3E8DC;color:#8A7766;font-size:17px;font-weight:500;line-height:40px;text-align:center}
+.site .brand{position:absolute;left:24px;top:110px;font-weight:700;font-size:30px;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.site .logo{width:36px;height:36px;border-radius:11px;background:#F97316;display:inline-block;position:relative}
+.site .bur{position:absolute;right:28px;top:122px;width:34px;height:22px;border-top:4px solid #2A1F17;border-bottom:4px solid #2A1F17}
+.site .bur:after{content:'';position:absolute;left:0;top:5px;width:34px;height:4px;background:#2A1F17}
+.site .hero{position:absolute;left:16px;top:164px;width:394px;height:246px;border-radius:24px;background:linear-gradient(150deg,#FFE4C7,#FDBA74);overflow:hidden}
+.site .tt{position:absolute;left:24px;top:424px;font-weight:700;font-size:40px;white-space:nowrap}
+.site .sb{position:absolute;left:26px;top:482px;font-size:19px;font-weight:500;color:#8A7766;white-space:nowrap}
+.site .row{position:absolute;left:16px;width:394px;height:54px;border-radius:16px;background:#FFFFFF;border:2px solid #F3E8DC;font-size:21px;font-weight:600;line-height:50px;padding:0 18px;white-space:nowrap}
+.site .row b{position:absolute;right:18px;top:0;color:#EA580C;font-weight:700}
+.site .btn{position:absolute;left:16px;top:740px;width:394px;height:74px;border-radius:37px;background:#F97316;color:#fff;font-size:28px;font-weight:700;text-align:center;line-height:74px}
+#toast{position:absolute;left:330px;top:516px;width:420px;height:80px;border-radius:40px;background:#C8FF2E;color:#07070C;font-size:31px;text-align:center;line-height:80px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5);white-space:nowrap}
+.lb{position:absolute;left:600px;height:76px;padding:0 28px 0 16px;border-radius:38px;background:#07070C;border:3px solid #C8FF2E;color:#F5F5FA;font-size:34px;line-height:70px;white-space:nowrap;opacity:0;display:flex;align-items:center;gap:14px;letter-spacing:-0.01em;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+.lb i{width:46px;height:46px;border-radius:23px;background:#C8FF2E;display:flex;align-items:center;justify-content:center}
+#ov{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#cc{position:absolute;left:0;top:0;width:134px;height:185px;transform-origin:10px 10px;opacity:0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+#ccsh{display:none}
+{{CSS_S67}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="world">
+  <div id="dotsWrap"><div id="dots"></div></div>
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+
+  <div class="full" id="sMain">
+    <div class="hl" id="h0"><span class="ln" id="h0a">Sənə sayt</span><span class="ln lime" id="h0b">lazımdır?</span></div>
+    <div class="sub" id="sub0">3 əlamətə bax.</div>
+    <div class="hl" id="x0"><span class="ln" id="x0a">Gecə 23:40,</span><span class="ln lime" id="x0b">yenə yazırlar.</span></div>
+    <div class="hl" id="x1"><span class="ln" id="x1a">Hamı eyni şeyi</span><span class="ln lime" id="x1b">soruşur.</span></div>
+    <div class="hl" id="x2"><span class="ln" id="x2a">Ünvanı</span><span class="ln lime" id="x2b">tapa bilmirlər.</span></div>
+    <div class="hl" id="x3"><span class="ln" id="x3a">Üçü də var?</span><span class="ln lime" id="x3b">Deməli, vaxtdır.</span></div>
+    <div class="hl" id="x4"><span class="ln" id="x4a">Pəncə Pet-in</span><span class="ln lime" id="x4b">yeni saytı.</span></div>
+    <div class="hl" id="x5"><span class="ln" id="x5a">Sual yox,</span><span class="ln lime" id="x5b">sifariş var.</span></div>
+
+    <div id="ck"></div>
+    <div id="zn">
+      <div class="zs" id="zc"><div id="zhd"><div class="av"></div><div class="nm">Mesajlar</div><div class="tm"><svg width="34" height="34" viewBox="0 0 34 34"><path d="M24 4 A14 14 0 1 0 30 24 A11 11 0 0 1 24 4 Z" fill="#C8FF2E"/></svg><span id="clk">23:40</span></div></div>
+        <div class="dt" id="d0" style="top:134px"><i style="left:22px"></i><i style="left:53px"></i><i style="left:84px"></i></div>
+        <div class="dt" id="d1" style="top:244px"><i style="left:22px"></i><i style="left:53px"></i><i style="left:84px"></i></div>
+        <div class="dt" id="d2" style="top:354px"><i style="left:22px"></i><i style="left:53px"></i><i style="left:84px"></i></div>
+        <div class="bb" id="b0" style="top:122px">Salam, açıqsız?</div>
+        <div class="bb" id="b1" style="top:232px">Pişik yemi var?</div>
+        <div class="bb" id="b2" style="top:342px">Qiyməti neçəyədir?</div>
+        <div id="unr">Cavab yoxdur… hamı yatıb.</div></div>
+      <div class="zs" id="zr"><div id="qs"></div><div id="qn">×0</div></div>
+      <div class="zs" id="zm"><svg width="834" height="554" viewBox="0 0 834 554">
+        <rect width="834" height="554" fill="#16161F"/>
+        <g fill="#1E1E2B"><rect x="30" y="30" width="200" height="140" rx="16"/><rect x="270" y="30" width="250" height="140" rx="16"/><rect x="560" y="30" width="244" height="140" rx="16"/>
+          <rect x="30" y="210" width="140" height="130" rx="16"/><rect x="210" y="210" width="310" height="130" rx="16"/><rect x="560" y="210" width="244" height="130" rx="16"/>
+          <rect x="30" y="380" width="260" height="144" rx="16"/><rect x="330" y="380" width="190" height="144" rx="16"/><rect x="560" y="380" width="244" height="144" rx="16"/></g>
+        <path id="route" d="M120 520 C 120 380, 250 360, 250 190 S 420 190, 540 190 S 540 360, 700 360 S 700 190, 690 110" fill="none" stroke="#7B61FF" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22" opacity=".9"/>
+      </svg>
+        <div class="qm" id="q0">?</div><div class="qm" id="q1">?</div><div class="qm" id="q2">?</div>
+        <svg id="pin" viewBox="0 0 90 120"><path d="M45 116 C 30 90 6 70 6 44 A39 39 0 0 1 84 44 C 84 70 60 90 45 116 Z" fill="#7B61FF" stroke="#07070C" stroke-width="4"/><circle cx="45" cy="44" r="15" fill="#F5F5FA"/></svg></div>
+    </div>
+    <div id="wvb"></div><div id="wvl"></div>
+    <div class="phone" id="ph"><div class="notch"></div><div class="scr"><div class="site" id="site"></div></div></div>
+    <div id="toast">Sifariş · 23:41 ✓</div>
+    <div class="lb" id="l0" style="top:1150px"><i><svg width="30" height="30" viewBox="0 0 40 40"><path d="M9 21 l7 7 l15 -17" fill="none" stroke="#07070C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Qiymətlər yazılıb</div>
+    <div class="lb" id="l1" style="top:1286px"><i><svg width="30" height="30" viewBox="0 0 40 40"><path d="M9 21 l7 7 l15 -17" fill="none" stroke="#07070C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Ünvan xəritədə</div>
+    <div class="lb" id="l2" style="top:1422px"><i><svg width="30" height="30" viewBox="0 0 40 40"><path d="M9 21 l7 7 l15 -17" fill="none" stroke="#07070C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Gecə də sifariş</div>
+    <svg id="ov" viewBox="0 0 1080 1920"><g id="fxg" stroke-linecap="round"></g></svg>
+    <svg id="cc" viewBox="-4 -4 32 44"><g id="ccb"><polygon points="0,0 0,29 8,22 14,35 19,33 13,20 23,20" fill="#F5F5FA" stroke="#07070C" stroke-width="1.6" stroke-linejoin="round"/>
+      <g id="eyes"><ellipse cx="4.6" cy="14.2" rx="2" ry="2.8" fill="#07070C"/><ellipse cx="9.8" cy="16.8" rx="2" ry="2.8" fill="#07070C"/><circle cx="5.2" cy="13.2" r=".7" fill="#fff"/><circle cx="10.4" cy="15.8" r=".7" fill="#fff"/></g></g></svg>
+  </div>
+
+{{HTML_S67}}
+  <div class="full" id="flashL"></div>
+</div>
+<div class="full" id="vig"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+</div>
+
+<script>
+{{HELPERS}}
+// ---------------- content ----------------
+const RT=['Gecə də yazırlar','Hamı qiymət soruşur','Ünvanı tapmırlar'];const SKW=[420,500,460];
+$('ck').innerHTML=RT.map((r,i)=>`<div class="rw" style="top:${30+i*130}px"><div class="bx" id="bx${i}"><svg viewBox="0 0 52 52"><path id="ckp${i}" pathLength="1" d="M11 27 l10 10 l21 -23" fill="none" stroke="#07070C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div><div class="sk" id="sk${i}" style="width:${SKW[i]}px"></div><div class="rt" id="rt${i}"></div></div>`).join('');
+const NQ=18;const rq=rnd(7);const QP=[];
+for(let i=0;i<NQ;i++){const col=i%4,row=Math.floor(i/4);QP.push({x:14+col*204+(rq()-.5)*24,y:554-14-72-row*76,r:(rq()-.5)*16,v:i%5==3});}
+$('qs').innerHTML=QP.map((q,i)=>`<div class="qp${q.v?' v':''}" id="qp${i}">Qiymət?</div>`).join('');
+const PAW=`<svg viewBox="0 0 200 200"><g fill="#FFFFFF" stroke="#C2410C" stroke-width="6"><ellipse cx="100" cy="128" rx="46" ry="38"/><ellipse cx="52" cy="84" rx="18" ry="24"/><ellipse cx="82" cy="56" rx="18" ry="24"/><ellipse cx="118" cy="56" rx="18" ry="24"/><ellipse cx="148" cy="84" rx="18" ry="24"/></g>
+<path d="M164 30 l5 12 l12 5 l-12 5 l-5 12 l-5 -12 l-12 -5 l12 -5 Z" fill="#EA580C"/><path d="M26 150 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z" fill="#FB923C"/></svg>`;
+const ROWS=[['Pişik yemi 2 kq','12 ₼'],['İt yemi 3 kq','18 ₼'],['📍 Yasamal','Xəritə →']];const RY=[528,596,664];
+$('site').innerHTML=`<div class="st">23:41</div><div class="url">pencepet.az</div><div class="brand"><span class="logo"></span>Pəncə Pet</div><div class="bur"></div>
+<div class="hero"><div style="position:absolute;left:112px;top:28px;width:180px;height:190px">${PAW}</div></div><div class="tt">Pet mağazası</div><div class="sb">Yasamal · sifariş 24/7</div>`+
+ROWS.map((r,i)=>`<div class="row" id="rr${i}" style="top:${RY[i]}px">${r[0]}<b>${r[1]}</b></div>`).join('')+`<div class="btn" id="rbtn">Sifariş et</div>`;
+// map: pin path points (zone coords) + question marks
+const ROUTE=$('route');const RL=ROUTE.getTotalLength();
+const QM=[[210,150],[500,230],[700,300]];QM.forEach((q,i)=>{const e=$('q'+i);e.style.left=(q[0]-40)+'px';e.style.top=(q[1]-40)+'px'});
+
+// ---------------- geometry ----------------
+const BOX=i=>[185,685+i*130];
+const HOME=[930,650],HOME2=[170,1150];
+const BTNP=[540,620+12+777];
+const K=[ // [t0,t1,x0,y0,x1,y1,hop,s0,s1]
+  [T.curIn,1.6,540,1980,HOME[0],HOME[1],420,1,.9]];
+T.tick.forEach((tk,i)=>{K.push([tk-.5,tk-.05,HOME[0],HOME[1],BOX(i)[0]+6,BOX(i)[1]+4,260,.9,.9]);K.push([tk+.3,tk+.7,BOX(i)[0]+6,BOX(i)[1]+4,HOME[0],HOME[1],240,.9,.9])});
+K.push([T.wave0-.05,T.wave0+.45,HOME[0],HOME[1],HOME2[0],HOME2[1],300,.9,.9]);
+K.push([T.click-.55,T.click-.05,HOME2[0],HOME2[1],BTNP[0]+10,BTNP[1]+6,260,.9,.9]);
+K.push([T.toast+.4,T.toast+.85,BTNP[0]+10,BTNP[1]+6,HOME2[0],HOME2[1]+40,240,.9,.9]);
+K.push([T.outro0,T.outro0+.4,HOME2[0],HOME2[1]+40,-200,900,260,.9,.9]);
+function curState(t){let x=1200,y=1600,rot=0,sx=1,sy=1,vis=t>=T.curIn&&t<T.outro0+.42,sc=1,eye=1,lx=0;
+  let last=null;for(const k of K){if(t>=k[0])last=k}
+  if(last){const [t0,t1,x0,y0,x1,y1,h,s0,s1]=last;const p=P(t,t0,t1-t0);const e=eIO(p);x=lerp(x0,x1,e);y=lerp(y0,y1,e)-Math.sin(Math.PI*p)*Math.abs(h);sc=lerp(s0,s1,e);
+    if(p<1){sy=1+.18*Math.sin(Math.PI*p);sx=1/sy;rot=Math.sin(Math.PI*p)*(x1>x0?14:-14)}
+    else{const lp=t-t1;if(lp<.18){const k2=Math.sin(Math.PI*lp/.18);sy=1-.25*k2;sx=1+.2*k2}}}
+  let moving=false;for(const k of K){if(t>=k[0]-.02&&t<k[1]+.2)moving=true}
+  for(const c of [...T.tick,T.click]){if(t>=c&&t<c+.25){const q=Math.sin(Math.PI*P(t,c,.25));sy*=1-.28*q;sx*=1+.16*q;moving=true}}
+  // rain: dodging the falling questions
+  if(t>=T.rain0&&t<T.rain1&&!moving){x+=Math.sin((t-T.rain0)*7)*16;rot=Math.sin((t-T.rain0)*7)*-14;y+=Math.abs(Math.sin(t*14))*-12;moving=true}
+  // map: confused head shake
+  if(t>=T.pin0&&t<10.5&&!moving){rot=Math.sin(t*10)*16;lx=Math.sin(t*10)*1.4;moving=true}
+  // all ticked: excited jumps
+  if(t>=T.allFlash-.2&&t<T.wave0-.05){const q=Math.abs(Math.sin((t-T.allFlash+.2)*Math.PI*3));y-=30*q;sy*=1+.08*q;moving=true}
+  // cheering for labels
+  for(const c of T.labs){if(t>=c&&t<c+.35){const q=Math.sin(Math.PI*P(t,c,.35));y-=40*q;sy*=1+.12*q;sx*=1-.08*q;rot=-8*q;moving=true}}
+  if(!moving&&vis){y+=Math.sin(t*6)*5;rot=Math.sin(t*2.6)*7}
+  return{x,y,rot,sx:sx*sc,sy:sy*sc,vis,eye,lx}}
+
+{{GRAIN}}
+const SH2=[[T.hookA+.05,8],...T.tick.map(c=>[c,9]),[T.allFlash,8],[T.wave1,10],[T.click,7],...T.labs.map(c=>[c,4]),[T.drop,22],[T.t6b,14],[T.tile,10],[T.click2,10]];
+const H=['x0','x1','x2','x3','x4','x5'];
+function typeIn(el,txt,t,t0,d){if(t<t0){el.textContent='';return}el.textContent=txt.slice(0,Math.ceil(txt.length*clamp((t-t0)/d)))}
+
+function render(t){
+  $('dots').style.transform=`translate(${-t*12}px,${-t*20}px)`;
+  $('g1').style.transform=`translate(${Math.sin(t*.5)*70}px,${Math.cos(t*.4)*60}px)`;$('g2').style.transform=`translate(${Math.cos(t*.45)*70}px,${Math.sin(t*.35)*70}px)`;
+  let sx=0,sy=0;for(const [t0,a] of SH2){const d=t-t0;if(d>0&&d<.35){const k=Math.pow(1-d/.35,2);sx+=Math.sin(d*97)*a*k;sy+=Math.cos(d*83)*a*.6*k}}
+  $('world').style.transform=`translate(${sx}px,${sy}px)`;grain(Math.round(t*60));
+  let fl=0;for(const [t0,a] of [[T.drop,.38],[T.t6b,.2],[T.wave1,.12],[T.allFlash,.06]]){const d=t-t0;if(d>=0&&d<.35)fl=Math.max(fl,a*(1-d/.35))}$('flashL').style.opacity=fl;
+
+  if(show('sMain',t,0,18.1)){
+    hline($('h0a'),t,T.hookA,T.hookOut,.22);hline($('h0b'),t,T.hookB,T.hookOut,.22);
+    H.forEach((id,i)=>{hline($(id+'a'),t,T.hA[i],T.hOut[i],.4);hline($(id+'b'),t,T.hA[i]+.15,T.hOut[i],.4)});
+    const sb=$('sub0');if(t<T.sub||t>2.7)sb.style.opacity=0;else{const p=eOC(P(t,T.sub,.4)),q=eIO(P(t,2.4,.3));sb.style.opacity=p*(1-q);sb.style.transform=`translateY(${(1-p)*24-q*40}px)`}
+    // checklist card
+    const ck=$('ck'),wv=eIO(P(t,T.wave0,T.wave1-T.wave0)),wx=lerp(-160,1240,wv);
+    pop(ck,t,T.card,{d:.5,y:80,s:.9});
+    const cl=t>=T.wave0?clamp((wx-120)/840)*100:0;ck.style.clipPath=cl>0?`inset(0 0 0 ${cl}%)`:'none';ck.style.display=cl>=100?'none':'block';
+    for(let i=0;i<3;i++){
+      const sk=$('sk'+i);sk.style.backgroundPosition=`${100-((t*0.7+i*.2)%1)*150}% 0`;sk.style.opacity=t<T.row[i]?1:1-P(t,T.row[i],.15);
+      typeIn($('rt'+i),RT[i],t,T.row[i],.45);
+      const bx=$('bx'+i),tp=P(t,T.tick[i],.3);const fl2=t>=T.allFlash&&t<T.allFlash+.5?Math.sin(Math.PI*P(t,T.allFlash+i*.06,.35)):0;
+      if(t>=T.tick[i]){bx.style.background='#C8FF2E';bx.style.borderColor='#C8FF2E';bx.style.transform=`scale(${1+.25*Math.sin(Math.PI*tp)+.2*fl2})`;bx.style.boxShadow=`0 0 ${30*(1-tp)+14+30*fl2}px rgba(200,255,46,.55)`}
+      else{bx.style.background='#1E1E2B';bx.style.borderColor=t>=T.row[i]?'#7B61FF':'#3A3A4F';bx.style.transform='';bx.style.boxShadow='none'}
+      $('ckp'+i).style.strokeDashoffset=1-eOC(P(t,T.tick[i]+.03,.3));
+      $('rt'+i).style.color=t>=T.tick[i]?'#F5F5FA':'#A9A9C2';
+    }
+    // zone panel
+    const zn=$('zn');const zi=eOC(P(t,T.zone,.45));
+    if(t<T.zone)zn.style.opacity=0;else{zn.style.opacity=zi;zn.style.transform=`translateY(${(1-zi)*80}px)`}
+    const zl=t>=T.wave0?clamp((wx-120)/840)*100:0;zn.style.clipPath=zl>0?`inset(0 0 0 ${zl}%)`:'none';zn.style.display=zl>=100?'none':'block';
+    const zsc=(id,a,b)=>{const e=$(id);const on=t>=a&&t<b+.3;e.style.display=on?'block':'none';if(!on)return;
+      const pi=eOC(P(t,a,.35)),po=eIC(P(t,b,.3));e.style.opacity=pi*(1-po);e.style.transform=`translateX(${(1-pi)*120-po*160}px)`};
+    zsc('zc',T.zone,T.zoneOut[0]);zsc('zr',T.zoneOut[0]+.05,T.zoneOut[1]);zsc('zm',T.zoneOut[1]+.05,99);
+    // chat
+    T.bub.forEach((b0,i)=>{const d=$('d'+i),bb=$('b'+i);
+      if(t>=b0-.4&&t<b0){d.style.opacity=eOC(P(t,b0-.4,.12));[...d.children].forEach((c,j)=>c.style.transform=`translateY(${-8*Math.max(0,Math.sin((t-b0)*14-j*.9))}px)`)}else d.style.opacity=0;
+      pop(bb,t,b0,{d:.45,y:30,x:-20,s:.6})});
+    $('clk').textContent=t>=4.7?'23:41':'23:40';
+    pop($('unr'),t,4.75,{d:.4,y:20,s:.95});
+    // rain of questions
+    let landed=0;
+    QP.forEach((q,i)=>{const e=$('qp'+i);const t0=T.rain0+i*(T.rain1-T.rain0)/NQ;if(t<t0){e.style.opacity=0;return}
+      const p=P(t,t0,.42);let y;if(p<1)y=lerp(-120,q.y,eIQ(p));else{const lp=t-t0-.42;y=q.y-Math.max(0,Math.sin(Math.min(lp/.22,1)*Math.PI))*18;landed++}
+      e.style.opacity=1;e.style.transform=`translate(${q.x}px,${y}px) rotate(${q.r*(p<1?2.2-1.2*p:1)}deg)`});
+    const qn=$('qn');pop(qn,t,T.rain0+.5,{d:.4,y:0,s:.4});qn.textContent='×'+landed;
+    if(landed>0){const lt=T.rain0+(landed-1)*(T.rain1-T.rain0)/NQ+.42;const kk=Math.max(0,1-(t-lt)/.15);qn.style.transform=`scale(${1+.15*kk})`}
+    // map
+    const pp=eIO(P(t,T.pin0,1.3));const pt=ROUTE.getPointAtLength(RL*pp);
+    ROUTE.style.strokeDashoffset=-t*30;
+    const pin=$('pin');let pr=Math.sin(t*11)*(t>T.pin0&&pp<1?10:0);let pj=0;
+    if(t>10.5&&t<11.6){pr=Math.sin((t-10.5)*30)*14*(1-P(t,10.5,1.1))}
+    if(t<T.map0+.1)pj=-200*(1-eOB(P(t,T.map0,.4)));
+    pin.style.transform=`translate(${pt.x-45}px,${pt.y-116+pj}px) rotate(${pr}deg)`;
+    T.q.forEach((q0,i)=>pop($('q'+i),t,q0,{d:.4,y:0,s:.2}));
+    // lime wave
+    const wa=t>=T.wave0&&t<T.wave1+.2;$('wvb').style.opacity=wa?1-P(t,T.wave1,.2):0;$('wvl').style.opacity=wa?1-P(t,T.wave1,.2):0;
+    $('wvb').style.transform=`translateX(${wx-170}px)`;$('wvl').style.transform=`translateX(${wx-6}px)`;
+    // phone revealed by the wave
+    const ph=$('ph');const fo=eIC(P(t,T.outro0,.45));
+    if(t<T.wave0)ph.style.opacity=0;else{const pc=clamp((765-wx)/450)*100;ph.style.opacity=1-fo;ph.style.clipPath=pc>0?`inset(-60px ${pc}% -60px -60px)`:'none';
+      const bounce=t>=T.wave1?Math.sin(Math.PI*P(t,T.wave1,.35))*.04:0;ph.style.transform=`translateY(${fo*80}px) scale(${(1+bounce)*(1-.15*fo)})`}
+    const rb=$('rbtn');const bq=t>=T.click&&t<T.click+.25?Math.sin(Math.PI*P(t,T.click,.25)):0;rb.style.transform=`scale(${1-.06*bq})`;rb.style.background=t>=T.click?'#C2410C':'#F97316';
+    T.labs.forEach((c,i)=>{const rr=$('rr'+[0,2,2][i]);});
+    $('rr0').style.borderColor=t>=T.labs[0]?'#F97316':'#F3E8DC';$('rr2').style.borderColor=t>=T.labs[1]?'#F97316':'#F3E8DC';
+    const ts=$('toast');pop(ts,t,T.toast,{d:.45,y:30,s:.7});if(t>T.labs[0]-.25)ts.style.opacity=(+ts.style.opacity)*(1-P(t,T.labs[0]-.25,.25));
+    T.labs.forEach((c,i)=>{const e=$('l'+i);pop(e,t,c,{d:.5,x:80,y:0,s:.7});if(t>T.outro0-.1)e.style.opacity=(+e.style.opacity)*(1-P(t,T.outro0-.1+i*.05,.3))});
+    // fx
+    let fx='';
+    T.tick.forEach((c,i)=>{if(t>=c&&t<c+.5)fx+=lines(BOX(i)[0],BOX(i)[1],8,40,30,P(t,c,.5),'#C8FF2E',6)});
+    if(t>=T.click&&t<T.click+.5)fx+=lines(BTNP[0],BTNP[1],8,30,30,P(t,T.click,.5),'#C8FF2E',5);
+    T.labs.forEach((c,i)=>{if(t>=c+.1&&t<c+.6)fx+=lines(638,[1150,1286,1422][i]+38,8,30,26,P(t,c+.1,.5),'#C8FF2E',5)});
+    if(t>=T.wave1&&t<T.wave1+.6)fx+=lines(540,1060,12,260,50,P(t,T.wave1,.6),'#C8FF2E',6);
+    $('fxg').innerHTML=fx;
+    // cursor character
+    const c=curState(t);const cc=$('cc');
+    cc.style.opacity=c.vis?1:0;
+    cc.style.transform=`translate(${c.x-10}px,${c.y-10}px) rotate(${c.rot}deg) scale(${c.sx},${c.sy})`;
+    const bl=(t%2.7)<.12;const ey=bl?.15:c.eye;
+    $('eyes').setAttribute('transform',`translate(${c.lx} ${15.5*(1-ey)}) scale(1 ${ey})`);
+  }
+
+{{S6}}
+}
+window.render=render;render(0);
+window.measure=()=>[...document.querySelectorAll('.ln,.lb,#l6b,#l6a,#toast,.rt,.bb')].map(e=>[e.id||e.textContent.slice(0,14),Math.round(e.getBoundingClientRect().width)]);
+</script>
+</body>
+</html>
