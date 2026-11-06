@@ -2,12 +2,13 @@
   "date": "2026-11-06",
   "time": "18:00",
   "video": "reels/2026-11-06-sayt-puzzle.mp4",
-  "premade": false,
+  "premade": true,
   "caption_instagram": "Saytın parça-parçadır?\nParçaları biz yığaq.\n\n#keşfet #kesfet #baku #azerbaycan #biznes #sayt #sahibkar #webdizayn #idman",
   "caption_tiktok": "Saytın parça-parçadır?\nParçaları biz yığaq.\n\n#keşfet #kesfet #fyp #baku #azerbaycan #biznes #sayt #sahibkar #webdizayn #idman",
   "cover_ms": 1000,
   "tiktok_scheduled_in_metricool": true,
   "instagram_published": false,
   "tiktok_metricool_id": 418787824,
-  "instagram_container_id": "18148037086562017"
+  "instagram_container_id": "18148037086562017",
+  "note": "This day's Reel was made by the delayed run (session cse_015steDPdbpZ5oMBqwuDGvmF), which ALSO publishes the Instagram container 18148037086562017 at 18:00 itself. Another run today must NOT create/publish a second Instagram post and must NOT schedule TikTok again (Metricool id 418787824) - only verify and exit."
 }
