@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<style>
+{{CSS_BASE}}
+.hl{font-size:96px}
+.sub{top:470px}
+#tilt{position:absolute;left:315px;top:620px;width:450px;height:880px;transform-origin:225px 440px;opacity:0}
+.body{position:absolute;left:0;top:0;width:450px;height:880px;border-radius:62px;background:#0B0B12;border:3px solid #3A3A4F;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.7)}
+.scr{position:absolute;left:12px;top:12px;width:426px;height:856px;border-radius:50px;overflow:hidden;background:#F2F8FA}
+.site{position:absolute;left:0;top:0;width:426px;height:856px;background:#F2F8FA;font-family:'Poppins',sans-serif;color:#10343D;overflow:hidden}
+.site .stt{position:absolute;left:40px;top:14px;font-size:17px;font-weight:600}
+.site .url{position:absolute;left:22px;top:42px;width:382px;height:40px;border-radius:20px;background:#DDEBEF;color:#5F7F88;font-size:17px;font-weight:500;line-height:40px;text-align:center}
+.site .brand{position:absolute;left:24px;top:102px;font-family:'Lora',serif;font-weight:700;font-size:30px;white-space:nowrap;display:flex;align-items:center;gap:12px}
+.site .logo{width:42px;height:42px;border-radius:21px;background:#1F8A9C;color:#fff;font-size:24px;line-height:42px;text-align:center;display:inline-block}
+.site .bur{position:absolute;right:30px;top:114px;width:32px;height:20px;border-top:4px solid #10343D;border-bottom:4px solid #10343D}
+.site .bur:after{content:'';position:absolute;left:0;top:4px;width:32px;height:4px;background:#10343D}
+.site .hero{position:absolute;left:16px;top:166px;width:394px;height:270px;border-radius:24px;background:linear-gradient(160deg,#BFE6EE,#7CC9D8);overflow:hidden}
+.site .ht{position:absolute;left:24px;top:20px;font-family:'Lora',serif;font-weight:700;font-size:42px;line-height:1.08;color:#0E3A44}
+.site .hs{position:absolute;left:26px;top:124px;font-size:18px;font-weight:500;color:#2E6A76}
+.site .tag{position:absolute;left:24px;top:200px;height:44px;padding:0 18px;border-radius:22px;background:#0E3A44;color:#fff;font-size:22px;font-weight:700;line-height:44px}
+.site i{position:absolute;display:block}
+.site .card{position:absolute;top:464px;width:190px;height:230px;border-radius:20px;background:#fff;border:2px solid #D6E6EA;box-sizing:border-box}
+.site .card .im{position:absolute;left:10px;top:10px;width:166px;height:116px;border-radius:14px;background:#E3F2F5;overflow:hidden}
+.site .card .nm{position:absolute;left:16px;top:138px;font-size:20px;font-weight:500;color:#5F7F88}
+.site .card .pr{position:absolute;left:16px;top:168px;font-size:32px;font-weight:700;color:#1F8A9C}
+.site .chips{position:absolute;left:16px;top:706px;display:flex;gap:10px}
+.site .chp{height:44px;width:122px;border-radius:22px;background:#fff;border:2px solid #CFE2E7;box-sizing:border-box;font-size:20px;font-weight:600;line-height:40px;text-align:center;color:#2E6A76}
+.site .btn{position:absolute;left:16px;top:764px;width:394px;height:66px;border-radius:33px;background:#0E3A44;color:#fff;font-size:26px;font-weight:700;text-align:center;line-height:66px}
+#stain{position:absolute;left:206px;top:290px;width:170px;height:130px}
+#stain b{position:absolute;display:block;border-radius:50%;background:radial-gradient(circle at 45% 40%,rgba(92,62,30,.92),rgba(110,76,38,.75) 55%,rgba(110,76,38,0) 72%)}
+.band{position:absolute;left:0;width:426px;overflow:hidden;background:rgba(118,106,86,.78)}
+.band .sm{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(70,58,42,.55),rgba(70,58,42,0) 70%)}
+#haze{position:absolute;left:0;top:0;width:426px;height:856px;background:radial-gradient(ellipse at 30% 30%,rgba(190,180,160,.55),rgba(150,140,120,.35) 60%,rgba(170,160,140,.5))}
+#dust{position:absolute;left:0;top:0}
+#toast{position:absolute;left:140px;top:1560px;width:800px;height:84px;border-radius:42px;background:#C8FF2E;color:#07070C;font-size:36px;text-align:center;line-height:84px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5);white-space:nowrap}
+.lab{position:absolute;height:72px;padding:0 24px;border-radius:36px;background:#1E1E2B;border:3px solid #C8FF2E;color:#F5F5FA;font-size:32px;line-height:66px;white-space:nowrap;opacity:0}
+.lab span{color:#C8FF2E}
+.bub{position:absolute;width:86px;height:86px;border-radius:43px;background:#F5F5FA;color:#07070C;font-size:60px;text-align:center;line-height:86px;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#wvb{position:absolute;left:0;top:560px;width:180px;height:1000px;opacity:0;background:linear-gradient(90deg,rgba(200,255,46,0),rgba(200,255,46,.45) 70%,#C8FF2E 92%,rgba(200,255,46,0));filter:blur(2px)}
+#wvl{position:absolute;left:0;top:560px;width:12px;height:1000px;border-radius:6px;background:#C8FF2E;box-shadow:0 0 34px #C8FF2E;opacity:0}
+#glint{position:absolute;left:0;top:0;width:140px;height:1100px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));transform-origin:0 0;opacity:0}
+#ov{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#cc{position:absolute;left:0;top:0;width:134px;height:185px;transform-origin:10px 10px;opacity:0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+{{CSS_S67}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="world">
+  <div id="dotsWrap"><div id="dots"></div></div>
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+  <div class="full" id="sMain">
+    <div class="hl" id="h0"><span class="ln" id="h0a">Saytın</span><span class="ln lime" id="h0b">toz basıb?</span></div>
+    <div class="sub" id="sub0">Gəl, bir silək.</div>
+    <div class="hl" id="x0"><span class="ln" id="x0a">Əvvəlcə</span><span class="ln lime" id="x0b">tozu üfürək.</span></div>
+    <div class="hl" id="x1"><span class="ln" id="x1a">Sonra hər küncü</span><span class="ln lime" id="x1b">silək.</span></div>
+    <div class="hl" id="x2"><span class="ln" id="x2a">Bu ləkə</span><span class="ln lime" id="x2b">getmir axı…</span></div>
+    <div class="hl" id="x3"><span class="ln" id="x3a">İndi bax,</span><span class="ln lime" id="x3b">parıldayır!</span></div>
+    <div class="hl" id="x4"><span class="ln" id="x4a">Vaxtı seç,</span><span class="ln lime" id="x4b">bir toxunuş.</span></div>
+    <div id="tilt"><div class="body"></div>
+      <div class="scr"><div class="site" id="site"></div>
+        <div id="bands"></div>
+        <div id="haze"></div>
+        <div id="glint"></div>
+      </div>
+    </div>
+    <div id="wvb"></div><div id="wvl"></div>
+    <canvas id="dust" width="1080" height="1920"></canvas>
+    <div class="lab" id="lab0" style="left:24px;top:1030px"><span>✓</span> Qiymət</div>
+    <div class="lab" id="lab1" style="left:800px;top:1180px"><span>✓</span> Vaxt</div>
+    <div class="lab" id="lab2" style="left:14px;top:1330px"><span>✓</span> Sifariş</div>
+    <div id="toast">Şənbə 10:00 · sifariş getdi ✓</div>
+    <div class="bub" id="bx" style="background:#C8FF2E">!</div>
+<svg id="ov" viewBox="0 0 1080 1920"><g id="fxg" stroke-linecap="round"></g></svg>
+    <svg id="cc" viewBox="-4 -4 32 44"><g id="ccb"><polygon points="0,0 0,29 8,22 14,35 19,33 13,20 23,20" fill="#F5F5FA" stroke="#07070C" stroke-width="1.6" stroke-linejoin="round"/>
+      <g id="eyes"><ellipse cx="4.6" cy="14.2" rx="2" ry="2.8" fill="#07070C"/><ellipse cx="9.8" cy="16.8" rx="2" ry="2.8" fill="#07070C"/><circle cx="5.2" cy="13.2" r=".7" fill="#fff"/><circle cx="10.4" cy="15.8" r=".7" fill="#fff"/></g></g></svg>
+  </div>
+
+{{HTML_S67}}
+  <div class="full" id="flashL"></div>
+</div>
+<div class="full" id="vig"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+</div>
+<script>
+{{HELPERS}}
+const SX=327,SY=632;
+// deterministic rng
+let seed=7;const rn=()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646};
+// dirt bands (screen y ranges)
+const BY=[[0,158],[158,450],[450,742],[742,856]];
+$('bands').innerHTML=BY.map((b,i)=>{let s='';for(let k=0;k<5;k++){const w=60+rn()*140;s+=`<div class="sm" style="left:${rn()*380-30}px;top:${rn()*(b[1]-b[0])-30}px;width:${w}px;height:${w*.7}px"></div>`}
+  if(i==0)s+=`<svg style="position:absolute;right:0;top:0" width="150" height="150" viewBox="0 0 150 150" fill="none" stroke="rgba(235,230,220,.8)" stroke-width="1.6"><path d="M150 0 L40 110 M150 0 L80 140 M150 0 L10 60 M150 0 L120 150 M150 0 L0 20"/>`+[30,60,95,130].map(r=>`<path d="M${150-r*.95} ${r*.2} Q${150-r*.7} ${r*.6} ${150-r*.75} ${r*.75} Q${150-r*.55} ${r*.8} ${150-r*.35} ${r*.95} Q${150-r*.15} ${r*.95} ${150-r*.05} ${r}"/>`).join('')+`</svg>`;
+  return `<div class="band" id="bd${i}" style="top:${b[0]}px;height:${b[1]-b[0]}px">${s}</div>`}).join('');
+// dust particles (screen coords)
+const DP=[];for(let i=0;i<620;i++)DP.push({x:rn()*426,y:rn()*856,r:1+rn()*3.2,d:rn()*.5,vy:(rn()-.5)*260,sp:.7+rn()*.7,c:rn()});
+function BOTTLE(){return `<div style="position:absolute;left:255px;top:60px;width:120px;height:200px">
+<i style="left:30px;top:0;width:56px;height:34px;border-radius:10px 16px 4px 4px;background:#fff"></i><i style="left:84px;top:8px;width:30px;height:14px;border-radius:4px;background:#fff"></i>
+<i style="left:40px;top:30px;width:36px;height:28px;background:#E9F6F8"></i><i style="left:18px;top:56px;width:80px;height:140px;border-radius:24px 24px 18px 18px;background:#1F8A9C"></i>
+<i style="left:30px;top:96px;width:56px;height:46px;border-radius:10px;background:#fff;opacity:.9"></i><i style="left:42px;top:108px;width:32px;height:8px;border-radius:4px;background:#7CC9D8"></i><i style="left:42px;top:122px;width:22px;height:8px;border-radius:4px;background:#7CC9D8"></i></div>
+<i style="left:228px;top:40px;width:22px;height:22px;border-radius:11px;border:3px solid #fff;box-sizing:border-box"></i><i style="left:200px;top:82px;width:14px;height:14px;border-radius:7px;border:3px solid #fff;box-sizing:border-box"></i><i style="left:214px;top:10px;width:12px;height:12px;border-radius:6px;background:#fff;opacity:.8"></i>`}
+function MOP(){return `<i style="left:78px;top:6px;width:8px;height:78px;border-radius:4px;background:#8A6A4A;transform:rotate(18deg)"></i><i style="left:42px;top:78px;width:64px;height:24px;border-radius:8px;background:#1F8A9C"></i>`}
+function WIN(){return `<i style="left:46px;top:12px;width:74px;height:90px;border-radius:8px;border:5px solid #1F8A9C;box-sizing:border-box;background:#BFE6EE"></i><i style="left:81px;top:12px;width:5px;height:90px;background:#1F8A9C"></i><i style="left:46px;top:55px;width:74px;height:5px;background:#1F8A9C"></i>`}
+$('site').innerHTML=`<div class="stt">18:00</div><div class="url">parilti.az</div><div class="brand"><span class="logo">✦</span>Parıltı Təmizlik</div><div class="bur"></div>
+<div class="hero"><div class="ht">Evin<br>parıldasın.</div><div class="hs">Ev · ofis · pəncərə</div><div class="tag">45 ₼-dan</div>${BOTTLE()}</div>
+<div id="stain"><b style="left:0;top:10px;width:110px;height:100px"></b><b style="left:60px;top:0;width:100px;height:90px"></b><b style="left:50px;top:50px;width:90px;height:80px"></b></div>
+<div class="card" style="left:16px"><div class="im">${MOP()}</div><div class="nm">Ev təmizliyi</div><div class="pr">45 ₼</div></div>
+<div class="card" style="left:220px"><div class="im">${WIN()}</div><div class="nm">Pəncərə</div><div class="pr">25 ₼</div></div>
+<div class="chips"><div class="chp" id="ch0">10:00</div><div class="chp">12:00</div><div class="chp">15:00</div></div>
+<div class="btn" id="BTN">Sifariş et</div>`;
+
+// ---------------- mascot ----------------
+const HOME=[930,580],REST=[950,1380],BLOW=[150,1020],STN=[SX+290,SY+355],CHP=[SX+77,SY+728],BTP=[540,SY+797];
+const bandMid=i=>SY+(BY[i][0]+BY[i][1])/2;
+const K=[[T.curIn,1.65,540,1980,HOME[0],HOME[1],420,1,.9]];
+K.push([T.blow0-.45,T.blow0-.05,...HOME,...BLOW,300,.9,.9]);
+let prev=BLOW;T.wipe.forEach((w,i)=>{const s=[SX-6,bandMid(i)];K.push([w-.4,w-.02,...prev,...s,i==0?240:110,.9,.9]);prev=[SX+426,bandMid(i)]});
+K.push([T.wipe[3]+T.wd+.05,T.wipe[3]+T.wd+.45,...prev,...REST,240,.9,.9]);
+K.push([T.ex-.45,T.ex-.05,...REST,STN[0]+60,STN[1]+40,260,.9,.9]);
+K.push([T.scrub0-.3,T.scrub0,STN[0]+60,STN[1]+40,...STN,80,.9,.9]);
+K.push([T.clean+.35,T.clean+.75,...STN,...REST,240,.9,.9]);
+K.push([T.chip-.42,T.chip-.04,...REST,...CHP,240,.9,.9]);
+K.push([T.btn-.42,T.btn-.04,...CHP,BTP[0]+8,BTP[1]+6,160,.9,.9]);
+K.push([T.toast+.4,T.toast+.8,BTP[0]+8,BTP[1]+6,...REST,240,.9,.9]);
+K.push([T.outro0,T.outro0+.4,...REST,-200,900,260,.9,.9]);
+const TAPS=[T.chip,T.btn];
+function curState(t){let x=1200,y=1600,rot=0,sx=1,sy=1,vis=t>=T.curIn&&t<T.outro0+.42,sc=.9,eye=1,lx=0;
+  let last=null;for(const k of K){if(t>=k[0])last=k}
+  if(last){const [t0,t1,x0,y0,x1,y1,h,s0,s1]=last;const p=P(t,t0,t1-t0);const e=eIO(p);x=lerp(x0,x1,e);y=lerp(y0,y1,e)-Math.sin(Math.PI*p)*Math.abs(h);sc=lerp(s0,s1,e);
+    if(p<1){sy=1+.18*Math.sin(Math.PI*p);sx=1/sy;rot=Math.sin(Math.PI*p)*(x1>x0?14:x1<x0?-14:0)}
+    else{const lp=t-t1;if(lp<.18){const k2=Math.sin(Math.PI*lp/.18);sy=1-.25*k2;sx=1+.2*k2}}}
+  let moving=false;for(const k of K){if(t>=k[0]-.02&&t<k[1]+.2)moving=true}
+  // blowing: inflate then push forward at each puff
+  T.puff.forEach(c=>{if(t>=c-.25&&t<c){const q=P(t,c-.25,.25);sx*=1+.2*q;sy*=1+.2*q;rot=-20*q;moving=true}
+    else if(t>=c&&t<c+.35){const q=P(t,c,.35);const k2=Math.sin(Math.PI*q);sx*=1-.18*k2;sy*=1+.1*k2;x+=30*k2;rot=-20*(1-q);moving=true}});
+  if(t>=T.blow0&&t<T.blow1&&!moving){rot=Math.sin(t*4)*5;moving=true}
+  // wiping: ride the squeegee across the band
+  T.wipe.forEach((w,i)=>{if(t>=w&&t<w+T.wd){const p=eIO(P(t,w,T.wd));x=SX-6+p*432;y=bandMid(i)+Math.sin(t*40)*3;rot=-8;moving=true}});
+  // scrubbing
+  if(t>=T.scrub0&&t<T.clean){x=STN[0]+Math.sin((t-T.scrub0)*26)*42;y=STN[1]+Math.cos((t-T.scrub0)*13)*16;rot=Math.sin((t-T.scrub0)*26)*14;moving=true}
+  for(const c of [...TAPS,...T.hits]){if(t>=c&&t<c+.25){const q=Math.sin(Math.PI*P(t,c,.25));sy*=1-.28*q;sx*=1+.16*q;moving=true}}
+  if(t>=T.ex&&t<T.ex+.35)eye=1.35;
+  if(t>=T.clean&&t<T.clean+.3)eye=1.25;
+  if(!moving&&vis){y+=Math.sin(t*6)*5;rot=Math.sin(t*2.6)*7}
+  return{x,y,rot,sx:sx*sc,sy:sy*sc,vis,eye,lx}}
+
+{{GRAIN}}
+const SH2=[[T.hookA+.05,8],...T.puff.map(c=>[c,5]),...T.hits.map(c=>[c,6]),[T.clean,10],[T.wave1,9],[T.chip,4],[T.btn,7],[T.drop,22],[T.t6b,14],[T.tile,10],[T.click2,10]];
+const H=['x0','x1','x2','x3','x4'];
+const dctx=$('dust').getContext('2d');
+function star(x,y,r,a){const q=r*.28;let d=`M${x} ${y-r}`;for(let k=0;k<4;k++){const a1=(k+.5)*Math.PI/2,a2=(k+1)*Math.PI/2;d+=` Q${x} ${y} ${x+Math.sin(a2)*r} ${y-Math.cos(a2)*r}`}
+  return `<path d="${d}" fill="#C8FF2E" stroke="none" transform="rotate(${a} ${x} ${y})"/>`}
+const GL=[[SX+70,SY+130],[SX+360,SY+220],[SX+120,SY+520],[SX+330,SY+640],[SX+210,SY+820]];
+
+function render(t){
+  $('dots').style.transform=`translate(${-t*12}px,${-t*20}px)`;
+  $('g1').style.transform=`translate(${Math.sin(t*.5)*70}px,${Math.cos(t*.4)*60}px)`;$('g2').style.transform=`translate(${Math.cos(t*.45)*70}px,${Math.sin(t*.35)*70}px)`;
+  let sx=0,sy=0;for(const [t0,a] of SH2){const d=t-t0;if(d>0&&d<.35){const k=Math.pow(1-d/.35,2);sx+=Math.sin(d*97)*a*k;sy+=Math.cos(d*83)*a*.6*k}}
+  $('world').style.transform=`translate(${sx}px,${sy}px)`;grain(Math.round(t*60));
+  let fl=0;for(const [t0,a] of [[T.drop,.38],[T.t6b,.2],[T.clean,.12],[T.wave1,.1]]){const d=t-t0;if(d>=0&&d<.35)fl=Math.max(fl,a*(1-d/.35))}$('flashL').style.opacity=fl;
+
+  if(show('sMain',t,0,18.1)){
+    hline($('h0a'),t,T.hookA,T.hookOut,.22);hline($('h0b'),t,T.hookB,T.hookOut,.22);
+    H.forEach((id,i)=>{hline($(id+'a'),t,T.hA[i],T.hOut[i],.4);hline($(id+'b'),t,T.hA[i]+.15,T.hOut[i],.4)});
+    const sb=$('sub0');if(t<T.sub||t>2.7)sb.style.opacity=0;else{const p=eOC(P(t,T.sub,.4)),q=eIO(P(t,2.4,.3));sb.style.opacity=p*(1-q);sb.style.transform=`translateY(${(1-p)*24-q*40}px)`}
+    const fo=eIC(P(t,T.outro0,.45));let rs=1;
+    for(const [c,a] of [[T.clean,.02],[T.wave1,.035]]){const q=P(t,c,.35);if(q>0&&q<1)rs+=a*Math.sin(Math.PI*q)}
+    const pi=eOC(P(t,T.phone,.5));const tl=$('tilt');tl.style.opacity=Math.min(pi*2,1)*(1-fo);
+    const ty=(1-pi)*500+fo*80,ps=rs*(1-.12*fo)*(.85+.15*pi);
+    tl.style.transform=`translateY(${ty}px) scale(${ps})`;
+    // haze + dust
+    const bp=P(t,T.blow0,T.blow1-T.blow0);
+    $('haze').style.opacity=1-eIO(clamp(bp*1.3));
+    dctx.clearRect(0,0,1080,1920);
+    if(bp<1){const cx=540,cy=1060;
+      for(const d of DP){const q=clamp((bp-d.d*.6-d.x/426*.25)/.5);if(q>=1)continue;const e=eIQ(q);
+        const px=SX+d.x+e*900*d.sp,py=SY+d.y+e*d.vy+Math.sin(q*9+d.c*6)*14*q;
+        const X=cx+(px-cx)*ps,Y=cy+(py-cy)*ps+ty;
+        dctx.globalAlpha=(1-q)*(.55+.4*d.c)*Math.min(pi*2,1);dctx.fillStyle=d.c>.5?'#D8D0C0':'#8E8472';dctx.beginPath();dctx.arc(X,Y,d.r*(1+q),0,6.283);dctx.fill()}
+      dctx.globalAlpha=1}
+    // wipes
+    T.wipe.forEach((w,i)=>{const p=eIO(P(t,w,T.wd));$('bd'+i).style.clipPath=`inset(0 0 0 ${p*100}%)`});
+    // stain
+    let so=1,ssc=1;T.hits.forEach((h,j)=>{const q=eOC(P(t,h,.25));so-=q*(j<2?.3:.4);ssc-=q*.12});
+    const st=$('stain');st.style.opacity=Math.max(0,so);st.style.transform=`scale(${ssc})`;
+    // lime wave shine + glint
+    const wv=eIO(P(t,T.wave0,T.wave1-T.wave0)),wx=lerp(-160,1240,wv);
+    const wa=t>=T.wave0&&t<T.wave1+.2;$('wvb').style.opacity=wa?1-P(t,T.wave1,.2):0;$('wvl').style.opacity=wa?1-P(t,T.wave1,.2):0;
+    $('wvb').style.transform=`translateX(${wx-170}px)`;$('wvl').style.transform=`translateX(${wx-6}px)`;
+    const gl=$('glint');gl.style.opacity=wa?.9*(1-P(t,T.wave1,.2)):0;gl.style.transform=`translate(${wx-SX-120}px,-120px) rotate(16deg)`;
+    $('site').style.filter=`saturate(${t<T.wave0?.75:lerp(.75,1.08,clamp((wx-SX)/426))})`;
+    const ch=$('ch0');{const on=t>=T.chip;ch.style.background=on?'#1F8A9C':'#fff';ch.style.color=on?'#fff':'#2E6A76';ch.style.borderColor=on?'#1F8A9C':'#CFE2E7';
+      const q=t>=T.chip&&t<T.chip+.25?Math.sin(Math.PI*P(t,T.chip,.25)):0;ch.style.transform=`scale(${1-.08*q})`}
+    const bt=$('BTN');{const on=t>=T.btn;bt.style.background=on?'#1F8A9C':'#0E3A44';bt.textContent=on?'Sifariş edildi ✓':'Sifariş et';
+      const q=t>=T.btn&&t<T.btn+.25?Math.sin(Math.PI*P(t,T.btn,.25)):0;bt.style.transform=`scale(${1-.06*q})`}
+    const ts=$('toast');pop(ts,t,T.toast,{d:.45,y:30,s:.7});if(t>T.outro0-.1)ts.style.opacity=(+ts.style.opacity)*(1-P(t,T.outro0-.1,.3));
+    T.lab.forEach((c,i)=>{const e=$('lab'+i);pop(e,t,c,{d:.45,x:i==1?60:-60,y:0,s:.7});if(t>T.outro0-.1)e.style.opacity=(+e.style.opacity)*(1-P(t,T.outro0-.1,.3))});
+    const c=curState(t);
+    const bx=$('bx');if(t>=T.ex&&t<T.scrub0+.1){pop(bx,t,T.ex,{d:.35,y:30,s:.5});bx.style.left=(c.x-20)+'px';bx.style.top=(c.y-170)+'px';if(t>T.scrub0-.15)bx.style.opacity=(+bx.style.opacity)*(1-P(t,T.scrub0-.15,.25))}else bx.style.opacity=0;
+    let fx='';
+    // wind lines
+    T.puff.forEach(p0=>{if(t>=p0&&t<p0+.6){const q=P(t,p0,.6);for(let k=0;k<4;k++){const y0=BLOW[1]-60+k*45,x0=BLOW[0]+120+q*360,ln=170*(1-q*.4);
+      fx+=`<path d="M${x0} ${y0} q${ln*.5} ${-20+k*8} ${ln} 0" stroke="#F5F5FA" stroke-width="7" fill="none" opacity="${(1-q)*.9}"/>`}}});
+    // squeegee blade + drops
+    T.wipe.forEach((w,i)=>{if(t>=w-.05&&t<w+T.wd+.12){const p=eIO(P(t,w,T.wd));const bx2=SX+p*426,y0=SY+BY[i][0]+8,y1=SY+BY[i][1]-8;const o=t>w+T.wd?1-P(t,w+T.wd,.12):1;
+      fx+=`<line x1="${bx2}" y1="${y0}" x2="${bx2}" y2="${y1}" stroke="#C8FF2E" stroke-width="14" opacity="${o}"/><line x1="${bx2+4}" y1="${y0+6}" x2="${bx2+4}" y2="${y1-6}" stroke="#F5FFD8" stroke-width="3" opacity="${o}"/>`;
+      for(let k=0;k<6;k++){const dy=y0+(y1-y0)*((k*.37+i*.2)%1),dx=bx2-30-((k*53)%90)*p;fx+=`<circle cx="${dx}" cy="${dy+((t*300+k*40)%40)}" r="${5+k%3*2}" fill="#BFE6EE" opacity="${.85*o}"/>`}}
+      const e=w+T.wd;if(t>=e&&t<e+.45)fx+=lines(SX+426,bandMid(i),6,14,20,P(t,e,.45),'#C8FF2E',4)});
+    // scrub bubbles
+    if(t>=T.scrub0&&t<T.clean+.6){for(let k=0;k<12;k++){const b0=T.scrub0+k*.15;if(t<b0)continue;const q=P(t,b0,.9);if(q>=1)continue;
+      const bxx=STN[0]-70+((k*61)%150),byy=STN[1]+30-((k*37)%60)-q*90;fx+=`<circle cx="${bxx}" cy="${byy}" r="${8+(k%4)*5+q*6}" fill="rgba(255,255,255,.15)" stroke="#fff" stroke-width="3" opacity="${1-q}"/>`}}
+    T.hits.forEach(h=>{if(t>=h&&t<h+.4)fx+=lines(STN[0],STN[1]+20,6,40,22,P(t,h,.4),'#F5F5FA',4)});
+    if(t>=T.clean&&t<T.clean+.6)fx+=lines(STN[0],STN[1]+20,12,60,40,P(t,T.clean,.6),'#C8FF2E',6);
+    if(t>=T.wave1&&t<T.wave1+.6)fx+=lines(540,1060,12,260,50,P(t,T.wave1,.6),'#C8FF2E',6);
+    T.glint.forEach((g,k)=>{if(t>=g&&t<g+.7){const q=P(t,g,.7);const r=46*Math.sin(Math.PI*q);fx+=star(GL[k][0],GL[k][1]+ty,r,q*90)}});
+    if(t>=T.chip&&t<T.chip+.5)fx+=lines(CHP[0],CHP[1],8,26,24,P(t,T.chip,.5),'#C8FF2E',5);
+    if(t>=T.btn&&t<T.btn+.5)fx+=lines(BTP[0],BTP[1],8,40,30,P(t,T.btn,.5),'#C8FF2E',5);
+    $('fxg').innerHTML=fx;
+    const cc=$('cc');cc.style.opacity=c.vis?1:0;
+    cc.style.transform=`translate(${c.x-10}px,${c.y-10}px) rotate(${c.rot}deg) scale(${c.sx},${c.sy})`;
+    const bl=(t%2.7)<.12;const ey=bl?.15:Math.min(c.eye,1);
+    $('eyes').setAttribute('transform',`translate(${c.lx} ${15.5*(1-ey)}) scale(${c.eye>1?c.eye:1} ${ey*(c.eye>1?c.eye:1)})`);
+  }
+
+{{S6}}
+}
+window.render=render;render(0);
+window.measure=()=>[...document.querySelectorAll('.ln,#l6b,#l6a,#toast,.lab')].map(e=>[e.id||e.textContent.slice(0,14),Math.round(e.getBoundingClientRect().width),Math.round(e.getBoundingClientRect().left)]);
+</script>
+</body>
+</html>
