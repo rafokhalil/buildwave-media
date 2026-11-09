@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<style>
+{{CSS_BASE}}
+.hl{font-size:96px}
+.sub{top:470px}
+#tilt{position:absolute;left:315px;top:620px;width:450px;height:880px;transform-origin:225px 440px;opacity:0}
+.body{position:absolute;left:0;top:0;width:450px;height:880px;border-radius:62px;background:#0B0B12;border:3px solid #3A3A4F;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.7)}
+.scr{position:absolute;left:12px;top:12px;width:426px;height:856px;border-radius:50px;overflow:hidden;background:#FAF6F0}
+.site{position:absolute;left:0;top:0;width:426px;height:856px;background:#FAF6F0;font-family:'Poppins',sans-serif;color:#1D1B19;overflow:hidden}
+.site .stt{position:absolute;left:40px;top:14px;font-size:17px;font-weight:600}
+.site .url{position:absolute;left:22px;top:42px;width:382px;height:40px;border-radius:20px;background:#EFE7DC;color:#857868;font-size:17px;font-weight:500;line-height:40px;text-align:center}
+.site .brand{position:absolute;left:24px;top:102px;font-family:'Lora',serif;font-weight:700;font-size:30px;white-space:nowrap;display:flex;align-items:center;gap:12px}
+.site .logo{width:42px;height:42px;border-radius:21px;background:#C2683A;color:#fff;font-size:22px;line-height:42px;text-align:center;display:inline-block}
+.site .bur{position:absolute;right:30px;top:114px;width:32px;height:20px;border-top:4px solid #1D1B19;border-bottom:4px solid #1D1B19}
+.site .bur:after{content:'';position:absolute;left:0;top:4px;width:32px;height:4px;background:#1D1B19}
+.site .hero{position:absolute;left:16px;top:166px;width:394px;height:270px;border-radius:24px;background:linear-gradient(180deg,#F6C99B,#E58E5A 60%,#B9542C);overflow:hidden}
+.site .ht{position:absolute;left:24px;top:20px;font-family:'Lora',serif;font-weight:700;font-size:42px;line-height:1.08;color:#fff;text-shadow:0 2px 12px rgba(80,30,10,.35)}
+.site .hs{position:absolute;left:26px;top:124px;font-size:18px;font-weight:600;color:#FFF3E6}
+.site .tag{position:absolute;left:24px;top:200px;height:44px;padding:0 18px;border-radius:22px;background:#1D1B19;color:#fff;font-size:22px;font-weight:700;line-height:44px;z-index:2}
+.site i{position:absolute;display:block}
+.site .card{position:absolute;top:464px;width:190px;height:230px;border-radius:20px;background:#fff;border:2px solid #EADFD2;box-sizing:border-box}
+.site .card .im{position:absolute;left:10px;top:10px;width:166px;height:116px;border-radius:14px;background:#F3E3D3;overflow:hidden}
+.site .card .nm{position:absolute;left:16px;top:138px;font-size:20px;font-weight:500;color:#857868}
+.site .card .pr{position:absolute;left:16px;top:168px;font-size:32px;font-weight:700;color:#C2683A}
+.site .chips{position:absolute;left:16px;top:706px;display:flex;gap:10px}
+.site .chp{height:44px;width:122px;border-radius:22px;background:#fff;border:2px solid #E3D6C7;box-sizing:border-box;font-size:20px;font-weight:600;line-height:40px;text-align:center;color:#6A5D4F}
+.site .btn{position:absolute;left:16px;top:764px;width:394px;height:66px;border-radius:33px;background:#1D1B19;color:#fff;font-size:26px;font-weight:700;text-align:center;line-height:66px}
+#siteC{display:none}
+#lvl{position:absolute;left:-40px;top:438px;width:530px;height:5px;border-radius:3px;background:#F5F5FA;opacity:0;box-shadow:0 0 12px rgba(0,0,0,.5)}
+#vf{position:absolute;left:0;top:0;width:1080px;height:1920px;opacity:0}
+.vft{position:absolute;top:1540px;font-size:32px;color:#A9A9C2;letter-spacing:.02em;white-space:nowrap}
+#ring{position:absolute;left:220px;top:1600px;width:640px;height:96px;border-radius:30px;background:#12121B;border:3px solid #3A3A4F;box-sizing:border-box;overflow:hidden;opacity:0}
+#rs{position:absolute;left:0;top:0;width:2000px;height:96px}
+#needle{position:absolute;left:316px;top:-12px;width:8px;height:120px;border-radius:4px;background:#C8FF2E;box-shadow:0 0 18px #C8FF2E}
+#shut{position:absolute;left:470px;top:1690px;width:140px;height:140px;border-radius:70px;border:8px solid #F5F5FA;box-sizing:border-box;opacity:0}
+#shut b{position:absolute;left:12px;top:12px;width:100px;height:100px;border-radius:50px;background:#C8FF2E;display:block}
+#flash{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#fff;opacity:0}
+#deg{position:absolute;left:836px;top:1030px;height:64px;padding:0 22px;border-radius:32px;background:#1E1E2B;border:3px solid #3A3A4F;color:#F5F5FA;font-size:34px;line-height:58px;opacity:0;white-space:nowrap}
+#toast{position:absolute;left:140px;top:1560px;width:800px;height:84px;border-radius:42px;background:#C8FF2E;color:#07070C;font-size:36px;text-align:center;line-height:84px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5);white-space:nowrap}
+.lab{position:absolute;height:72px;padding:0 24px;border-radius:36px;background:#1E1E2B;border:3px solid #C8FF2E;color:#F5F5FA;font-size:32px;line-height:66px;white-space:nowrap;opacity:0}
+.lab span{color:#C8FF2E}
+.bub{position:absolute;width:86px;height:86px;border-radius:43px;background:#F5F5FA;color:#07070C;font-size:60px;text-align:center;line-height:86px;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#wvb{position:absolute;left:0;top:560px;width:180px;height:1000px;opacity:0;background:linear-gradient(90deg,rgba(200,255,46,0),rgba(200,255,46,.45) 70%,#C8FF2E 92%,rgba(200,255,46,0));filter:blur(2px)}
+#wvl{position:absolute;left:0;top:560px;width:12px;height:1000px;border-radius:6px;background:#C8FF2E;box-shadow:0 0 34px #C8FF2E;opacity:0}
+#ov{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#cc{position:absolute;left:0;top:0;width:134px;height:185px;transform-origin:10px 10px;opacity:0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+{{CSS_S67}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="world">
+  <div id="dotsWrap"><div id="dots"></div></div>
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+  <div class="full" id="sMain">
+    <div class="hl" id="h0"><span class="ln" id="h0a">Saytın</span><span class="ln lime" id="h0b">bulanıqdır?</span></div>
+    <div class="sub" id="sub0">Gəl, bir kadr çəkək.</div>
+    <div class="hl" id="x0"><span class="ln" id="x0a">Əvvəlcə</span><span class="ln lime" id="x0b">fokus.</span></div>
+    <div class="hl" id="x1"><span class="ln" id="x1a">Sonra bir az</span><span class="ln lime" id="x1b">işıq.</span></div>
+    <div class="hl" id="x2"><span class="ln" id="x2a">Kadr da</span><span class="ln lime" id="x2b">əyridir…</span></div>
+    <div class="hl" id="x3"><span class="ln" id="x3a">İndi bax,</span><span class="ln lime" id="x3b">rəng gəldi!</span></div>
+    <div class="hl" id="x4"><span class="ln" id="x4a">Günü seç,</span><span class="ln lime" id="x4b">bir toxunuş.</span></div>
+    <div id="vf">
+      <svg width="1080" height="1920" style="position:absolute;left:0;top:0" fill="none" stroke-linecap="round">
+        <g id="vfb" stroke="#F5F5FA" stroke-width="8"><path d="M262 650 V582 H330"/><path d="M750 582 H818 V650"/><path d="M262 1458 V1526 H330"/><path d="M750 1526 H818 V1458"/></g>
+        <g id="af" stroke="#F5F5FA" stroke-width="5"><path d="M470 900 v-26 h26"/><path d="M584 874 h26 v26"/><path d="M470 970 v26 h26"/><path d="M584 996 h26 v-26"/></g>
+        <circle cx="300" cy="620" r="0" fill="#C8FF2E" stroke="none"/>
+      </svg>
+      <div class="vft" style="left:270px">f/1.8 · 1/200</div><div class="vft" style="right:268px">ISO 100</div>
+    </div>
+    <div id="tilt"><div class="body"></div>
+      <div class="scr"><div class="site" id="siteG"></div><div class="site" id="siteC"></div></div>
+      <div id="lvl"></div>
+    </div>
+    <div id="ring"><div id="rs"></div><div id="needle"></div></div>
+    <div id="shut"><b></b></div>
+    <div id="deg">−8°</div>
+    <div id="wvb"></div><div id="wvl"></div>
+    <div class="lab" id="lab0" style="left:24px;top:1030px"><span>✓</span> Qiymət</div>
+    <div class="lab" id="lab1" style="left:810px;top:1180px"><span>✓</span> Tarix</div>
+    <div class="lab" id="lab2" style="left:14px;top:1330px"><span>✓</span> Rezerv</div>
+    <div id="toast">Cümə 15:00 · çəkiliş yazıldı ✓</div>
+    <div class="bub" id="bx" style="background:#C8FF2E">!</div>
+    <div class="bub" id="cd" style="left:690px;top:610px">3</div>
+<svg id="ov" viewBox="0 0 1080 1920"><g id="fxg" stroke-linecap="round"></g></svg>
+    <svg id="cc" viewBox="-4 -4 32 44"><g id="ccb"><polygon points="0,0 0,29 8,22 14,35 19,33 13,20 23,20" fill="#F5F5FA" stroke="#07070C" stroke-width="1.6" stroke-linejoin="round"/>
+      <g id="eyes"><ellipse cx="4.6" cy="14.2" rx="2" ry="2.8" fill="#07070C"/><ellipse cx="9.8" cy="16.8" rx="2" ry="2.8" fill="#07070C"/><circle cx="5.2" cy="13.2" r=".7" fill="#fff"/><circle cx="10.4" cy="15.8" r=".7" fill="#fff"/></g></g></svg>
+    <div id="flash"></div>
+  </div>
+
+{{HTML_S67}}
+  <div class="full" id="flashL"></div>
+</div>
+<div class="full" id="vig"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+</div>
+<script>
+{{HELPERS}}
+const SX=327,SY=632,CX=540,CY=1060;
+function HERO(){return `<i style="left:250px;top:34px;width:70px;height:70px;border-radius:35px;background:#FFE7B8;box-shadow:0 0 40px #FFD58A"></i>
+<i style="left:-40px;top:186px;width:300px;height:160px;border-radius:50%;background:#7A3A22"></i><i style="left:170px;top:200px;width:300px;height:160px;border-radius:50%;background:#5A2A1A"></i>
+<i style="left:268px;top:118px;width:34px;height:34px;border-radius:17px;background:#2A1610"></i><i style="left:258px;top:150px;width:54px;height:80px;border-radius:24px 24px 8px 8px;background:#2A1610"></i>
+<i style="left:318px;top:128px;width:28px;height:28px;border-radius:14px;background:#2A1610"></i><i style="left:310px;top:154px;width:44px;height:66px;border-radius:20px 20px 8px 8px;background:#2A1610"></i>`}
+function PERSON(n){let s='';for(let k=0;k<n;k++){const x=n==1?63:38+k*52;s+=`<i style="left:${x}px;top:22px;width:40px;height:40px;border-radius:20px;background:#C2683A"></i><i style="left:${x-12}px;top:66px;width:64px;height:60px;border-radius:30px 30px 6px 6px;background:#C2683A"></i>`}return s}
+function SITE(c){const q=c?'':'x';return `<div class="stt">18:00</div><div class="url">kadrstudio.az</div><div class="brand"><span class="logo">◉</span>Kadr Studio</div><div class="bur"></div>
+<div class="hero">${HERO()}<div class="ht">Anını<br>saxlayaq.</div><div class="hs">Ailə · toy · portret</div><div class="tag">60 ₼-dan</div></div>
+<div class="card" style="left:16px"><div class="im">${PERSON(1)}</div><div class="nm">Portret</div><div class="pr">60 ₼</div></div>
+<div class="card" style="left:220px"><div class="im">${PERSON(3)}</div><div class="nm">Ailə</div><div class="pr">120 ₼</div></div>
+<div class="chips"><div class="chp" id="ch0${q}">Cümə</div><div class="chp">Şənbə</div><div class="chp">Bazar</div></div>
+<div class="btn" id="BTN${q}">Rezerv et</div>`}
+$('siteG').innerHTML=SITE(0);$('siteC').innerHTML=SITE(1);
+// focus scale
+{let s='';for(let k=0;k<60;k++){const x=20+k*32;s+=`<i style="position:absolute;left:${x}px;top:${k%5==0?10:22}px;width:4px;height:${k%5==0?34:20}px;border-radius:2px;background:${k%5==0?'#F5F5FA':'#6E6E88'}"></i>`;
+  if(k%5==0)s+=`<span style="position:absolute;left:${x-30}px;top:50px;width:64px;text-align:center;font-size:26px;color:#A9A9C2">${['0.3','0.5','1','2','3','5','10','∞','∞','∞','∞','∞'][k/5]}</span>`}$('rs').innerHTML=s}
+
+// ---------------- state helpers ----------------
+const A0=-8;
+function ang(t){let a=A0;T.hits.forEach(h=>{const q=P(t,h,.4);a-=A0/3*eOB(q)});return a}
+function corner(t,a){const r=a*Math.PI/180,ox=225,oy=-440;return[CX+ox*Math.cos(r)-oy*Math.sin(r),CY+ox*Math.sin(r)+oy*Math.cos(r)]}
+function blurAt(t){let b=14;T.turn.forEach(c=>{b-=14/3*eIO(P(t,c,T.td))});return Math.max(0,b)}
+function expo(t){if(t<T.shot)return .4;const q=P(t,T.shot,.6);return lerp(1.35,1,eOC(q))*Math.min(1,.4+q*3)}
+
+// ---------------- mascot ----------------
+const HOME=[930,580],REST=[950,1380],RY=1630,RX=[720,650,580,510],SH=[536,1525],CHP=[SX+77,SY+728],BTP=[540,SY+797];
+const C0=corner(0,A0),STO=[C0[0]+4,C0[1]-150];
+const K=[[T.curIn,1.65,540,1980,HOME[0],HOME[1],420,1,.9]];
+K.push([T.turn[0]-.5,T.turn[0]-.08,...HOME,RX[0],RY,300,.9,.9]);
+T.turn.forEach((c,i)=>K.push([c,c+T.td,RX[i],RY,RX[i+1],RY,24,.9,.9]));
+K.push([T.ringOut-.05,T.shutIn+.3,RX[3],RY,...SH,200,.9,.9]);
+K.push([T.shot+.45,T.shot+.85,...SH,...REST,260,.9,.9]);
+K.push([T.ex-.5,T.ex-.08,...REST,...STO,300,.9,.9]);
+K.push([T.clean+.35,T.clean+.75,STO[0],STO[1]-26,...REST,240,.9,.9]);
+K.push([T.chip-.42,T.chip-.04,...REST,...CHP,240,.9,.9]);
+K.push([T.btn-.42,T.btn-.04,...CHP,BTP[0]+8,BTP[1]+6,160,.9,.9]);
+K.push([T.toast+.4,T.toast+.8,BTP[0]+8,BTP[1]+6,...REST,240,.9,.9]);
+K.push([T.outro0,T.outro0+.4,...REST,-200,900,260,.9,.9]);
+const TAPS=[T.chip,T.btn,T.shot];
+function curState(t){let x=1200,y=1600,rot=0,sx=1,sy=1,vis=t>=T.curIn&&t<T.outro0+.42,sc=.9,eye=1,lx=0;
+  let last=null;for(const k of K){if(t>=k[0])last=k}
+  if(last){const [t0,t1,x0,y0,x1,y1,h,s0,s1]=last;const p=P(t,t0,t1-t0);const e=eIO(p);x=lerp(x0,x1,e);y=lerp(y0,y1,e)-Math.sin(Math.PI*p)*Math.abs(h);sc=lerp(s0,s1,e);
+    if(p<1){sy=1+.18*Math.sin(Math.PI*p);sx=1/sy;rot=Math.sin(Math.PI*p)*(x1>x0?14:x1<x0?-14:0)}
+    else{const lp=t-t1;if(lp<.18){const k2=Math.sin(Math.PI*lp/.18);sy=1-.25*k2;sx=1+.2*k2}}}
+  let moving=false;for(const k of K){if(t>=k[0]-.02&&t<k[1]+.2)moving=true}
+  // dragging the focus scale: lean back, pull
+  T.turn.forEach(c=>{if(t>=c-.12&&t<c+T.td+.1){rot=-18*Math.sin(Math.PI*clamp((t-c+.12)/(T.td+.22)));sx*=1.08;sy*=.94;moving=true}});
+  // on the shutter: little hops on the countdown
+  T.count.forEach(c=>{if(t>=c&&t<c+.3){y-=26*Math.sin(Math.PI*P(t,c,.3));moving=true}});
+  if(t>=T.count[0]-.3&&t<T.shot+.45&&!moving){rot=Math.sin(t*5)*4;moving=true}
+  // stomping the raised corner
+  if(t>=T.ex-.08&&t<T.clean+.35){const cr=corner(t,ang(t));x=cr[0]+4;y=cr[1]-150;moving=true;
+    T.hits.forEach(h=>{if(t>=h-.38&&t<h)y-=70*Math.sin(Math.PI*P(t,h-.38,.38))});
+    if(t>=T.clean)y-=26*eOC(P(t,T.clean,.3))}
+  for(const c of [...TAPS,...T.hits]){if(t>=c&&t<c+.25){const q=Math.sin(Math.PI*P(t,c,.25));sy*=1-.28*q;sx*=1+.16*q;moving=true}}
+  if(t>=T.shot&&t<T.shot+.4)eye=.15;
+  if(t>=T.ex&&t<T.ex+.35)eye=1.35;
+  if(t>=T.clean&&t<T.clean+.3)eye=1.25;
+  if(!moving&&vis){y+=Math.sin(t*6)*5;rot=Math.sin(t*2.6)*7}
+  return{x,y,rot,sx:sx*sc,sy:sy*sc,vis,eye,lx}}
+
+{{GRAIN}}
+const SH2=[[T.hookA+.05,8],...T.turn.map(c=>[c+T.td,4]),[T.shot,16],...T.hits.map(c=>[c,7]),[T.clean,10],[T.wave1,9],[T.chip,4],[T.btn,7],[T.drop,22],[T.t6b,14],[T.tile,10],[T.click2,10]];
+const H=['x0','x1','x2','x3','x4'];
+function star(x,y,r,a){let d=`M${x} ${y-r}`;for(let k=0;k<4;k++){const a2=(k+1)*Math.PI/2;d+=` Q${x} ${y} ${x+Math.sin(a2)*r} ${y-Math.cos(a2)*r}`}
+  return `<path d="${d}" fill="#C8FF2E" stroke="none" transform="rotate(${a} ${x} ${y})"/>`}
+const GL=[[SX+70,SY+130],[SX+360,SY+220],[SX+120,SY+520],[SX+330,SY+640],[SX+210,SY+820]];
+
+function render(t){
+  $('dots').style.transform=`translate(${-t*12}px,${-t*20}px)`;
+  $('g1').style.transform=`translate(${Math.sin(t*.5)*70}px,${Math.cos(t*.4)*60}px)`;$('g2').style.transform=`translate(${Math.cos(t*.45)*70}px,${Math.sin(t*.35)*70}px)`;
+  let sx=0,sy=0;for(const [t0,a] of SH2){const d=t-t0;if(d>0&&d<.35){const k=Math.pow(1-d/.35,2);sx+=Math.sin(d*97)*a*k;sy+=Math.cos(d*83)*a*.6*k}}
+  $('world').style.transform=`translate(${sx}px,${sy}px)`;grain(Math.round(t*60));
+  let fl=0;for(const [t0,a] of [[T.drop,.38],[T.t6b,.2],[T.clean,.12],[T.wave1,.1]]){const d=t-t0;if(d>=0&&d<.35)fl=Math.max(fl,a*(1-d/.35))}$('flashL').style.opacity=fl;
+
+  if(show('sMain',t,0,18.1)){
+    hline($('h0a'),t,T.hookA,T.hookOut,.22);hline($('h0b'),t,T.hookB,T.hookOut,.22);
+    H.forEach((id,i)=>{hline($(id+'a'),t,T.hA[i],T.hOut[i],.4);hline($(id+'b'),t,T.hA[i]+.15,T.hOut[i],.4)});
+    const sb=$('sub0');if(t<T.sub||t>2.7)sb.style.opacity=0;else{const p=eOC(P(t,T.sub,.4)),q=eIO(P(t,2.4,.3));sb.style.opacity=p*(1-q);sb.style.transform=`translateY(${(1-p)*24-q*40}px)`}
+    const fo=eIC(P(t,T.outro0,.45));let rs=1;
+    for(const [c,a] of [[T.clean,.02],[T.wave1,.035],[T.shot,.03]]){const q=P(t,c,.35);if(q>0&&q<1)rs+=a*Math.sin(Math.PI*q)}
+    const pi=eOC(P(t,T.phone,.5));const tl=$('tilt');tl.style.opacity=Math.min(pi*2,1)*(1-fo);
+    const a=ang(t);const ty=(1-pi)*500+fo*80,ps=rs*(1-.12*fo)*(.85+.15*pi);
+    tl.style.transform=`translateY(${ty}px) scale(${ps}) rotate(${a}deg)`;
+    // viewfinder
+    const vo=Math.min(1,P(t,.3,.4))*(1-P(t,T.wave0,.4));$('vf').style.opacity=vo;
+    const foc=t>=T.turn[2]+T.td;$('af').setAttribute('stroke',foc?'#C8FF2E':'#F5F5FA');
+    {const q=foc?P(t,T.turn[2]+T.td,.3):1;$('af').style.transform=`translate(540px,935px) scale(${1+.25*Math.sin(Math.PI*q)}) translate(-540px,-935px)`}
+    // camera look: blur, exposure, grey
+    const bl=blurAt(t),ex=expo(t);
+    $('siteG').style.filter=`blur(${bl.toFixed(2)}px) brightness(${ex.toFixed(3)}) grayscale(1) contrast(.9)`;
+    const wv=eIO(P(t,T.wave0,T.wave1-T.wave0)),wx=lerp(-160,1240,wv);
+    const sc=$('siteC');if(t>=T.wave0){sc.style.display='block';sc.style.filter=`brightness(${ex.toFixed(3)})`;const cl=clamp((wx-SX)/426);sc.style.clipPath=`inset(0 ${(1-cl)*100}% 0 0)`}else sc.style.display='none';
+    // focus scale ring
+    const ro=$('ring');{const q=eOC(P(t,T.turn[0]-.6,.4));ro.style.opacity=q*(1-P(t,T.ringOut,.3));ro.style.transform=`translateY(${(1-q)*60+P(t,T.ringOut,.3)*40}px)`;
+      let off=0;T.turn.forEach(c=>off+=224*eIO(P(t,c,T.td)));$('rs').style.transform=`translateX(${-off+80}px)`}
+    // shutter
+    const sh=$('shut');pop(sh,t,T.shutIn,{d:.45,y:60,s:.5});if(t>T.shot+.6)sh.style.opacity=(+sh.style.opacity)*(1-P(t,T.shot+.6,.3));
+    if(t>=T.shot&&t<T.shot+.25){const q=Math.sin(Math.PI*P(t,T.shot,.25));sh.style.transform=`scale(${1-.12*q})`}
+    // countdown
+    const cd=$('cd');let ci=-1;T.count.forEach((c,i)=>{if(t>=c)ci=i});
+    if(ci>=0&&t<T.shot){cd.textContent=3-ci;pop(cd,t,T.count[ci],{d:.25,y:0,s:.4})}else cd.style.opacity=0;
+    // flash
+    $('flash').style.opacity=t>=T.shot?.95*Math.pow(1-P(t,T.shot,.5),2):0;
+    // level
+    const lv=$('lvl'),dg=$('deg');const lo=P(t,T.hA[2],.3)*(1-P(t,T.hOut[2]-.2,.3));lv.style.opacity=lo;
+    const lev=t>=T.clean;lv.style.background=lev?'#C8FF2E':'#F5F5FA';lv.style.boxShadow=lev?'0 0 22px #C8FF2E':'0 0 12px rgba(0,0,0,.5)';
+    dg.style.opacity=lo;dg.textContent=(Math.round(a)==0?'0':'−'+Math.abs(Math.round(a)))+'°';dg.style.borderColor=lev?'#C8FF2E':'#3A3A4F';dg.style.color=lev?'#C8FF2E':'#F5F5FA';
+    {const q=lev?P(t,T.clean,.3):1;dg.style.transform=`scale(${1+.2*Math.sin(Math.PI*q)})`}
+    // lime wave
+    const wa=t>=T.wave0&&t<T.wave1+.2;$('wvb').style.opacity=wa?1-P(t,T.wave1,.2):0;$('wvl').style.opacity=wa?1-P(t,T.wave1,.2):0;
+    $('wvb').style.transform=`translateX(${wx-170}px)`;$('wvl').style.transform=`translateX(${wx-6}px)`;
+    const ch=$('ch0');{const on=t>=T.chip;ch.style.background=on?'#C2683A':'#fff';ch.style.color=on?'#fff':'#6A5D4F';ch.style.borderColor=on?'#C2683A':'#E3D6C7';
+      const q=t>=T.chip&&t<T.chip+.25?Math.sin(Math.PI*P(t,T.chip,.25)):0;ch.style.transform=`scale(${1-.08*q})`}
+    const bt=$('BTN');{const on=t>=T.btn;bt.style.background=on?'#C2683A':'#1D1B19';bt.textContent=on?'Rezerv edildi ✓':'Rezerv et';
+      const q=t>=T.btn&&t<T.btn+.25?Math.sin(Math.PI*P(t,T.btn,.25)):0;bt.style.transform=`scale(${1-.06*q})`}
+    const ts=$('toast');pop(ts,t,T.toast,{d:.45,y:30,s:.7});if(t>T.outro0-.1)ts.style.opacity=(+ts.style.opacity)*(1-P(t,T.outro0-.1,.3));
+    T.lab.forEach((c,i)=>{const e=$('lab'+i);pop(e,t,c,{d:.45,x:i==1?60:-60,y:0,s:.7});if(t>T.outro0-.1)e.style.opacity=(+e.style.opacity)*(1-P(t,T.outro0-.1,.3))});
+    const c=curState(t);
+    const bx=$('bx');if(t>=T.ex&&t<T.push0+.3){pop(bx,t,T.ex,{d:.35,y:30,s:.5});bx.style.left=(c.x+70)+'px';bx.style.top=(c.y-60)+'px';if(t>T.push0)bx.style.opacity=(+bx.style.opacity)*(1-P(t,T.push0,.25))}else bx.style.opacity=0;
+    let fx='';
+    // focus scale: tick sparks at the needle
+    T.turn.forEach(c=>{const e=c+T.td;if(t>=e&&t<e+.4)fx+=lines(540,1648,6,40,18,P(t,e,.4),'#C8FF2E',4)});
+    if(t>=T.turn[2]+T.td&&t<T.turn[2]+T.td+.5)fx+=lines(540,935,10,70,30,P(t,T.turn[2]+T.td,.5),'#C8FF2E',5);
+    // shutter / flash rays
+    if(t>=T.shot&&t<T.shot+.55)fx+=lines(540,1060,16,300,90,P(t,T.shot,.55),'#FFFFFF',7);
+    T.count.forEach(c=>{if(t>=c&&t<c+.3)fx+=lines(733,653,6,50,14,P(t,c,.3),'#C8FF2E',4)});
+    // level reference (screen horizontal)
+    {const lo2=P(t,T.hA[2],.3)*(1-P(t,T.hOut[2]-.2,.3));if(lo2>0)fx+=`<line x1="200" y1="${CY}" x2="880" y2="${CY}" stroke="${t>=T.clean?'#C8FF2E':'#A9A9C2'}" stroke-width="4" stroke-dasharray="18 14" opacity="${lo2*.9}"/>`}
+    T.hits.forEach(h=>{if(t>=h&&t<h+.4){const cr=corner(h,ang(h));fx+=lines(cr[0],cr[1],7,30,22,P(t,h,.4),'#F5F5FA',4)}});
+    if(t>=T.clean&&t<T.clean+.6)fx+=lines(CX,CY,12,240,40,P(t,T.clean,.6),'#C8FF2E',6);
+    if(t>=T.wave1&&t<T.wave1+.6)fx+=lines(540,1060,12,260,50,P(t,T.wave1,.6),'#C8FF2E',6);
+    T.glint.forEach((g,k)=>{if(t>=g&&t<g+.7){const q=P(t,g,.7);const r=46*Math.sin(Math.PI*q);fx+=star(GL[k][0],GL[k][1]+ty,r,q*90)}});
+    if(t>=T.chip&&t<T.chip+.5)fx+=lines(CHP[0],CHP[1],8,26,24,P(t,T.chip,.5),'#C8FF2E',5);
+    if(t>=T.btn&&t<T.btn+.5)fx+=lines(BTP[0],BTP[1],8,40,30,P(t,T.btn,.5),'#C8FF2E',5);
+    $('fxg').innerHTML=fx;
+    const cc=$('cc');cc.style.opacity=c.vis?1:0;
+    cc.style.transform=`translate(${c.x-10}px,${c.y-10}px) rotate(${c.rot}deg) scale(${c.sx},${c.sy})`;
+    const bl2=(t%2.7)<.12;const ey=bl2?.15:Math.min(c.eye,1);
+    $('eyes').setAttribute('transform',`translate(${c.lx} ${15.5*(1-ey)}) scale(${c.eye>1?c.eye:1} ${ey*(c.eye>1?c.eye:1)})`);
+  }
+
+{{S6}}
+}
+window.render=render;render(0);
+window.measure=()=>[...document.querySelectorAll('.ln,#l6b,#l6a,#toast,.lab')].map(e=>[e.id||e.textContent.slice(0,14),Math.round(e.getBoundingClientRect().width),Math.round(e.getBoundingClientRect().left)]);
+</script>
+</body>
+</html>
