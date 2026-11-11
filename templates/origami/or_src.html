@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<style>
+{{CSS_BASE}}
+.hl{font-size:96px}
+.sub{top:470px}
+#tilt{position:absolute;left:315px;top:640px;width:450px;height:880px;transform-origin:225px 440px;opacity:0}
+.body{position:absolute;left:0;top:0;width:450px;height:880px;border-radius:62px;background:#0B0B12;border:3px solid #3A3A4F;box-sizing:border-box;box-shadow:0 40px 120px rgba(0,0,0,.7)}
+.scr{position:absolute;left:12px;top:12px;width:426px;height:856px;border-radius:50px;overflow:hidden;background:#12121B}
+.site{position:absolute;left:0;top:0;width:426px;height:856px;background:#FBF6F0;font-family:'Poppins',sans-serif;color:#2A1E1A;overflow:hidden}
+.site .stt{position:absolute;left:40px;top:14px;font-size:17px;font-weight:600}
+.site .url{position:absolute;left:22px;top:42px;width:382px;height:40px;border-radius:20px;background:#F0E6DB;color:#86716A;font-size:17px;font-weight:500;line-height:40px;text-align:center}
+.site .brand{position:absolute;left:24px;top:102px;font-family:'Lora',serif;font-weight:700;font-size:32px;white-space:nowrap;display:flex;align-items:center;gap:12px}
+.site .logo{width:42px;height:42px;border-radius:21px;background:#C8643C;display:inline-block;position:relative}
+.site .logo:after{content:'';position:absolute;left:13px;top:13px;width:16px;height:16px;border-radius:8px;background:#FBF6F0;box-shadow:inset 0 0 0 4px #C8643C}
+.site .bag{position:absolute;right:28px;top:106px;width:34px;height:32px;border-radius:6px;border:4px solid #2A1E1A;box-sizing:border-box}
+.site .bag:before{content:'';position:absolute;left:6px;top:-12px;width:14px;height:12px;border:4px solid #2A1E1A;border-bottom:none;border-radius:10px 10px 0 0}
+.site .bagn{position:absolute;right:16px;top:96px;width:26px;height:26px;border-radius:13px;background:#C8643C;color:#fff;font-size:16px;font-weight:700;line-height:26px;text-align:center;opacity:0}
+.site .hero{position:absolute;left:16px;top:166px;width:394px;height:270px;border-radius:24px;background:linear-gradient(160deg,#F4DCC8,#E6B998);overflow:hidden}
+.site .ht{position:absolute;left:24px;top:22px;font-family:'Lora',serif;font-weight:700;font-size:38px;line-height:1.1;color:#2A1E1A;z-index:2}
+.site .hs{position:absolute;left:26px;top:122px;font-size:18px;font-weight:600;color:#8A3E1E;z-index:2}
+.site .tag{position:absolute;left:24px;top:200px;height:44px;padding:0 18px;border-radius:22px;background:#2A1E1A;color:#fff;font-size:21px;font-weight:700;line-height:44px;z-index:2}
+.site .card{position:absolute;top:464px;width:190px;height:230px;border-radius:20px;background:#fff;border:2px solid #EADDD0;box-sizing:border-box}
+.site .card .im{position:absolute;left:10px;top:10px;width:166px;height:116px;border-radius:14px;background:#F3E7DC;overflow:hidden}
+.site .card .nm{position:absolute;left:16px;top:138px;font-size:20px;font-weight:500;color:#86716A;white-space:nowrap}
+.site .card .pr{position:absolute;left:16px;top:168px;font-size:32px;font-weight:700;color:#C8643C}
+.site .chips{position:absolute;left:16px;top:706px;display:flex;gap:10px}
+.site .chp{height:44px;width:91px;border-radius:22px;background:#fff;border:2px solid #E2D3C5;box-sizing:border-box;font-size:20px;font-weight:600;line-height:40px;text-align:center;color:#6B5A52}
+.site .btn{position:absolute;left:16px;top:764px;width:394px;height:66px;border-radius:33px;background:#2A1E1A;color:#fff;font-size:26px;font-weight:700;text-align:center;line-height:66px}
+#skel{z-index:5;position:absolute;left:0;top:0;width:426px;height:856px;background:#EFE6D3;perspective:900px}
+#skel b{position:absolute;display:block;background:#F8F1E2;border:2px solid #DCCDAE;box-sizing:border-box;transform-origin:50% 0;border-radius:14px;
+  background-image:linear-gradient(90deg,rgba(0,0,0,0) 49.6%,rgba(160,140,100,.25) 50%,rgba(0,0,0,0) 50.4%)}
+#wvb{z-index:6;position:absolute;left:0;top:0;width:426px;height:150px;opacity:0;background:linear-gradient(0deg,rgba(200,255,46,0),rgba(200,255,46,.45) 65%,#C8FF2E 90%,rgba(200,255,46,0))}
+#wvl{z-index:6;position:absolute;left:0;top:0;width:426px;height:12px;border-radius:6px;background:#C8FF2E;box-shadow:0 0 34px #C8FF2E;opacity:0}
+#ban{z-index:7;position:absolute;left:14px;top:92px;width:398px;height:76px;border-radius:22px;background:rgba(18,18,27,.95);color:#F5F5FA;font-family:'Inter Display',sans-serif;font-size:24px;line-height:76px;padding-left:76px;opacity:0;white-space:nowrap}
+#ban b{position:absolute;left:16px;top:14px;width:48px;height:48px;border-radius:14px;background:#C8FF2E}
+#toast{position:absolute;left:140px;top:1566px;width:800px;height:84px;border-radius:42px;background:#C8FF2E;color:#07070C;font-size:36px;text-align:center;line-height:84px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.5);white-space:nowrap}
+#cnt{position:absolute;left:290px;top:1566px;width:500px;height:84px;border-radius:42px;background:#1E1E2B;border:3px solid #3A3A4F;color:#F5F5FA;font-size:36px;text-align:center;line-height:78px;opacity:0;white-space:nowrap}
+#cnt span{color:#C8FF2E}
+.bub{position:absolute;width:86px;height:86px;border-radius:43px;background:#F5F5FA;color:#07070C;font-size:60px;text-align:center;line-height:86px;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#ov,#pv{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+#cc{position:absolute;left:0;top:0;width:134px;height:185px;transform-origin:10px 10px;opacity:0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+{{CSS_S67}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="world">
+  <div id="dotsWrap"><div id="dots"></div></div>
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div>
+  <div class="full" id="sMain">
+    <div class="hl" id="h0"><span class="ln" id="h0a">Hələ vərəqə</span><span class="ln lime" id="h0b">paylayırsan?</span></div>
+    <div class="sub" id="sub0">Çoxu zibilə düşür.</div>
+    <div class="hl" id="x0"><span class="ln" id="x0a">Dayan! Gəl,</span><span class="ln lime" id="x0b">onu qatlayaq.</span></div>
+    <div class="hl" id="x1"><span class="ln" id="x1a">İndi isə…</span><span class="ln lime" id="x1b">uçuraq!</span></div>
+    <div class="hl" id="x2"><span class="ln" id="x2a">Vərəqə açıldı,</span><span class="ln lime" id="x2b">sayt oldu.</span></div>
+    <div class="hl" id="x3"><span class="ln" id="x3a">Ölçünü seç,</span><span class="ln lime" id="x3b">səbətə at.</span></div>
+    <div class="hl" id="x4"><span class="ln" id="x4a">Sifarişlər</span><span class="ln lime" id="x4b">uçub gəlir.</span></div>
+    <div id="tilt"><div class="body"></div>
+      <div class="scr"><div class="site" id="site"></div><div id="skel"></div><div id="wvb"></div><div id="wvl"></div>
+        <div id="ban"><b></b>Yeni sifariş · Köynək M</div></div>
+    </div>
+    <div id="toast">Köynək · M · səbətdə ✓</div>
+    <div id="cnt">Bu gün sifariş: <span id="cntn">1</span></div>
+    <svg id="pv" viewBox="0 0 1080 1920">
+      <g id="bin" opacity="0"><path d="M430 1660 L650 1660 L630 1860 L450 1860 Z" fill="#1E1E2B" stroke="#3A3A4F" stroke-width="5"/></g>
+      <g id="minis"></g>
+      <g id="binF" opacity="0"><path d="M440 1700 L640 1700 L630 1860 L450 1860 Z" fill="#1E1E2B" stroke="#3A3A4F" stroke-width="5"/>
+        <rect x="414" y="1644" width="252" height="30" rx="10" fill="#2B2B3A" stroke="#3A3A4F" stroke-width="4"/>
+        <path d="M490 1730 L496 1830 M540 1730 L540 1830 M590 1730 L584 1830" stroke="#3A3A4F" stroke-width="6" stroke-linecap="round"/></g>
+      <path id="trail" fill="none" stroke="#C8FF2E" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 26" opacity="0"/>
+      <g id="pg"><g id="ftxW">
+        <polygon id="LB" stroke="#CDBF9F" stroke-width="2.5" stroke-linejoin="round"/>
+        <g id="rg"><polygon id="RB" stroke="#CDBF9F" stroke-width="2.5" stroke-linejoin="round"/><polygon id="RF" stroke="#CDBF9F" stroke-width="2.5" stroke-linejoin="round"/></g>
+        <polygon id="LF" stroke="#CDBF9F" stroke-width="2.5" stroke-linejoin="round"/>
+        <line id="crease" x1="0" y1="-300" x2="0" y2="300" stroke="#C9B994" stroke-width="3" opacity="0"/>
+        <g id="ftx" font-family="DejaVu Serif" text-anchor="middle">
+          <rect x="-220" y="-300" width="440" height="96" fill="#D9261C"/>
+          <text x="0" y="-232" font-size="58" font-weight="700" fill="#FFF200">ENDİRİM!!!</text>
+          <text x="0" y="-150" font-size="40" font-weight="700" fill="#1B2A8A">DÜYMƏ BUTİK</text>
+          <g transform="translate(0 -20)" fill="#9A9A9A"><path d="M-70 -60 L-30 -80 Q0 -60 30 -80 L70 -60 L90 -10 L55 0 L55 80 L-55 80 L-55 0 L-90 -10 Z"/></g>
+          <text x="0" y="130" font-size="30" fill="#222">Köynək, gödəkcə, şalvar</text>
+          <text x="0" y="176" font-size="30" fill="#222">Ünvan: soruşun</text>
+          <text x="0" y="240" font-size="40" font-weight="700" fill="#D9261C" text-decoration="underline">ZƏNG EDİN!!!</text>
+        </g></g>
+      </g>
+      <g id="orders"></g>
+    </svg>
+    <div class="bub" id="bx" style="background:#C8FF2E">!</div>
+<svg id="ov" viewBox="0 0 1080 1920"><g id="fxg" stroke-linecap="round"></g></svg>
+    <svg id="cc" viewBox="-4 -4 32 44"><g id="ccb"><polygon points="0,0 0,29 8,22 14,35 19,33 13,20 23,20" fill="#F5F5FA" stroke="#07070C" stroke-width="1.6" stroke-linejoin="round"/>
+      <g id="eyes"><ellipse cx="4.6" cy="14.2" rx="2" ry="2.8" fill="#07070C"/><ellipse cx="9.8" cy="16.8" rx="2" ry="2.8" fill="#07070C"/><circle cx="5.2" cy="13.2" r=".7" fill="#fff"/><circle cx="10.4" cy="15.8" r=".7" fill="#fff"/></g></g></svg>
+  </div>
+
+{{HTML_S67}}
+  <div class="full" id="flashL"></div>
+</div>
+<div class="full" id="vig"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+</div>
+<script>
+{{HELPERS}}
+const SX=327,SY=652;
+const SHIRT=(c,x,y,s)=>`<svg style="position:absolute;left:${x}px;top:${y}px" width="${180*s}" height="${170*s}" viewBox="-90 -90 180 170"><path d="M-70 -60 L-28 -80 Q0 -58 28 -80 L70 -60 L90 -14 L56 -2 L56 78 L-56 78 L-56 -2 L-90 -14 Z" fill="${c}"/><path d="M-28 -80 Q0 -40 28 -80" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="6"/><circle cx="0" cy="-20" r="5" fill="rgba(255,255,255,.7)"/><circle cx="0" cy="8" r="5" fill="rgba(255,255,255,.7)"/><circle cx="0" cy="36" r="5" fill="rgba(255,255,255,.7)"/></svg>`;
+const JACKET=(x,y,s)=>`<svg style="position:absolute;left:${x}px;top:${y}px" width="${180*s}" height="${170*s}" viewBox="-90 -90 180 170"><path d="M-66 -64 L-24 -82 L0 -40 L24 -82 L66 -64 L84 70 L54 74 L52 0 L52 78 L-52 78 L-52 0 L-54 74 L-84 70 Z" fill="#5B6B4A"/><path d="M0 -40 L0 78" stroke="#3E4A32" stroke-width="5"/><path d="M-24 -82 L-6 -20 M24 -82 L6 -20" stroke="#3E4A32" stroke-width="5" fill="none"/></svg>`;
+function SITE(){return `<div class="stt">18:00</div><div class="url">duymebutik.az</div><div class="brand"><span class="logo"></span>Düymə</div><div class="bag"></div><div class="bagn" id="bagn">1</div>
+<div class="hero"><div class="ht">Payız<br>kolleksiyası</div><div class="hs">Yeni gəldi · Bakı</div><div class="tag">45 ₼-dan</div>
+<div style="position:absolute;left:250px;top:18px;width:4px;height:30px;background:#8A6A4A"></div><div style="position:absolute;left:206px;top:44px;width:92px;height:12px;border-radius:6px;border:5px solid #8A6A4A;border-bottom:none;box-sizing:border-box"></div>
+${SHIRT("#F7F2EA",214,58,.74)}</div>
+<div class="card" style="left:16px"><div class="im">${SHIRT('#C8643C',22,8,.66)}</div><div class="nm">Köynək</div><div class="pr">45 ₼</div></div>
+<div class="card" style="left:220px"><div class="im">${JACKET(22,8,.66)}</div><div class="nm">Gödəkcə</div><div class="pr">89 ₼</div></div>
+<div class="chips"><div class="chp">S</div><div class="chp" id="chM">M</div><div class="chp">L</div><div class="chp">XL</div></div>
+<div class="btn" id="BTN">Səbətə at</div>`}
+$('site').innerHTML=SITE();
+const SK=[[24,100,230,46],[16,166,394,270],[16,464,190,230],[220,464,190,230],[16,706,394,44],[16,764,394,66]];
+$('skel').innerHTML=SK.map(([x,y,w,h])=>`<b style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></b>`).join('')+'<b style="left:22px;top:42px;width:382px;height:40px;border-radius:20px"></b>';
+
+// ---------------- paper geometry ----------------
+const C0='#F3EBD8',CB='#E3D6BA',CF='#FFF8EA',CK='#D8C9A6';
+const mir=a=>a.map(([x,y])=>[-x,y]);const pts=a=>a.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+const L2=(a,b,e)=>a.map((p,i)=>[lerp(p[0],b[i][0],e),lerp(p[1],b[i][1],e)]);
+const LB0=[[0,-300],[0,300],[-220,300],[-220,-80]],LBW=[[0,-330],[0,250],[-240,262],[-120,-34]];
+function geom(t){const eL=eIO(P(t,T.fL[0],T.fL[1]-T.fL[0])),eR=eIO(P(t,T.fR[0],T.fR[1]-T.fR[0])),eH=eIO(P(t,T.fH[0],T.fH[1]-T.fH[0])),eW=eIO(P(t,T.fW[0],T.fW[1]-T.fW[0]));
+  const lb=L2(LB0,LBW,eW);
+  const lf=L2([[0,-300],[lerp(-220,0,eL),lerp(-300,-80,eL)],[-220,-80]],[[0,-330],[-26,250],[0,250]],eW);
+  const rf=L2([[0,-300],[lerp(-220,0,eR),lerp(-300,-80,eR)],[-220,-80]],[[0,-330],[-26,250],[0,250]],eW);
+  let rs=Math.cos(Math.PI*eH);if(t>=T.fW[0])rs=lerp(-1,1,eW);
+  return{lb,lf,rf:mir(rf),rb:mir(lb),eL,eR,eH,eW,rs}}
+
+// flight path (screen) catmull-rom
+const FP=[[540,1060],[800,1010],[910,800],[760,600],[520,640],[400,820],[470,1010],[540,1100]];
+function cr(p0,p1,p2,p3,u){const u2=u*u,u3=u2*u;return[0,1].map(k=>.5*((2*p1[k])+(-p0[k]+p2[k])*u+(2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*u2+(-p0[k]+3*p1[k]-3*p2[k]+p3[k])*u3))}
+function fpath(s){const n=FP.length-1;const f=clamp(s)*n;const i=Math.min(n-1,Math.floor(f)),u=f-i;const g=k=>FP[clamp(k,0,n)];return cr(g(i-1),g(i),g(i+1),g(i+2),u)}
+function flightS(t){return eIO(P(t,T.fly0,T.fly1-T.fly0))}
+function paperT(t){
+  if(t<T.catch){return{x:540+Math.sin(t*1.7)*36,y:960+t*45,r:Math.sin(t*2.1)*9,s:1}}
+  if(t<T.fly0){const e=eOB(P(t,T.catch,.4));const y0=960+T.catch*45;let s=1;const q=P(t,T.catch,.25);if(q<1)s=1-.04*Math.sin(Math.PI*q);
+    const r0=Math.sin(T.catch*2.1)*9;const sw=eOC(P(t,T.fW[0],.6));return{x:540,y:lerp(y0,1060,e),r:lerp(r0,0,e),s:s*(1-.25*sw)}}
+  const s=flightS(t);const p=fpath(s),p2=fpath(Math.min(1,s+.01)),p1=fpath(Math.max(0,s-.01));
+  const ang=Math.atan2(p2[1]-p1[1],p2[0]-p1[0])*180/Math.PI+90;const r0=t<T.fly0+.25?lerp(0,ang,eOC(P(t,T.fly0,.25))):ang;
+  return{x:p[0],y:p[1],r:r0,s:lerp(.75,.42,eOC(P(t,T.fly0,.5)))*(1-.8*eIC(P(t,T.fly1-.45,.45))),fade:P(t,T.fly1-.12,.12)}}
+const loc=(pt,l)=>{const a=pt.r*Math.PI/180,c=Math.cos(a),s=Math.sin(a);return[pt.x+(l[0]*c-l[1]*s)*pt.s,pt.y+(l[0]*s+l[1]*c)*pt.s]};
+
+// ---------------- mascot ----------------
+const HOME=[905,650],REST=[905,1300],CHM=[SX+16+101+45,SY+728],BTP=[540,SY+797];
+const hopv=(t,t0,t1,a,b,h)=>{const p=P(t,t0,t1-t0),e=eIO(p);return{x:lerp(a[0],b[0],e),y:lerp(a[1],b[1],e)-Math.sin(Math.PI*p)*h,p,dir:Math.sign(b[0]-a[0])}};
+function curState(t){let x=-300,y=0,rot=0,sx=1,sy=1,vis=t>=T.curIn&&t<T.outro0+.42,sc=.9,eye=1,lx=0,m=null,moving=true;
+  const pt=paperT(t),g=geom(t);const PL=l=>loc(pt,l);
+  const segs=[];
+  if(t<1.65)m=hopv(t,T.curIn,1.65,[540,1980],HOME,420);
+  else if(t<T.catch-.42)m={x:HOME[0],y:HOME[1],p:1,idle:1};
+  else if(t<T.catch)m=hopv(t,T.catch-.42,T.catch,HOME,PL([-220,-300]),260);
+  else if(t<T.fL[0])m={...xy(PL([-220,-300])),p:1};
+  else if(t<T.fL[1]){m={...xy(PL(g.lf[1])),p:1};rot=-12;sx=1.1;sy=.92}
+  else if(t<T.fR[0])m=hopv(t,T.fL[1],T.fR[0],PL([0,-80]),PL([220,-300]),160);
+  else if(t<T.fR[1]){m={...xy(PL(g.rf[1])),p:1};rot=12;sx=1.1;sy=.92}
+  else if(t<T.fH[0])m=hopv(t,T.fR[1],T.fH[0],PL([0,-80]),PL([220,120]),160);
+  else if(t<T.fH[1]){m={...xy(PL([220*g.rs,120])),p:1};rot=-16;sx=1.12;sy=.9}
+  else if(t<T.fW[0])m=hopv(t,T.fH[1],T.fW[0],PL([-220,120]),PL([10,-40]),180);
+  else if(t<T.fly1-.35){m={...xy(PL([10,-40])),p:1};rot=pt.r*.3+Math.sin(t*9)*6}
+  else if(t<T.fly1+.1)m=hopv(t,T.fly1-.35,T.fly1+.1,loc(paperT(T.fly1-.35),[10,-40]),REST,260);
+  else if(t<T.size-.42)m={x:REST[0],y:REST[1],p:1,idle:1};
+  else if(t<T.size)m=hopv(t,T.size-.42,T.size-.04,REST,CHM,240);
+  else if(t<T.btn-.42)m={x:CHM[0],y:CHM[1],p:1};
+  else if(t<T.btn)m=hopv(t,T.btn-.42,T.btn-.04,CHM,BTP,160);
+  else if(t<T.toast+.05)m={x:BTP[0],y:BTP[1],p:1};
+  else if(t<T.toast+.5)m=hopv(t,T.toast+.05,T.toast+.5,BTP,REST,220);
+  else if(t<T.outro0)m={x:REST[0],y:REST[1],p:1,idle:1};
+  else m=hopv(t,T.outro0,T.outro0+.4,REST,[-200,900],260);
+  function xy(a){return{x:a[0],y:a[1]}}
+  x=m.x;y=m.y;
+  if(m.p<1){sy=1+.18*Math.sin(Math.PI*m.p);sx=1/sy;rot=Math.sin(Math.PI*m.p)*(m.dir>0?14:m.dir<0?-14:0)}
+  // landing squash
+  for(const c of [1.65,T.catch,T.fR[0],T.fH[0],T.fW[0],T.fly1+.1,T.toast+.5]){if(t>=c&&t<c+.18){const k2=Math.sin(Math.PI*(t-c)/.18);sy*=1-.25*k2;sx*=1+.2*k2}}
+  for(const c of [T.size,T.btn]){if(t>=c&&t<c+.25){const q=Math.sin(Math.PI*P(t,c,.25));sy*=1-.28*q;sx*=1+.16*q}}
+  // cheer on incoming orders
+  T.planes.forEach(w=>{const q=P(t,w,.35);if(q>0&&q<1){y-=70*Math.sin(Math.PI*q);rot=-10*Math.sin(Math.PI*q)}});
+  if(t>=T.catch-.05&&t<T.catch+.5)eye=1.35;
+  if(m.idle){y+=Math.sin(t*6)*5;rot=Math.sin(t*2.6)*7;if(t<T.catch)lx=Math.sin(t*3)*1.2}
+  return{x,y,rot,sx:sx*sc,sy:sy*sc,vis,eye,lx}}
+
+{{GRAIN}}
+const SH2=[[T.hookA+.05,8],[T.catch,8],[T.fL[1],4],[T.fR[1],4],[T.fH[1],6],[T.fW[1],8],[T.fly1,14],[T.wave1,12],[T.size,4],[T.btn,7],...T.planes.map(w=>[w,5]),[T.drop,22],[T.t6b,14],[T.tile,10],[T.click2,10]];
+const H=['x0','x1','x2','x3','x4'];
+function star(x,y,r,a){let d=`M${x} ${y-r}`;for(let k=0;k<4;k++){const a2=(k+1)*Math.PI/2;d+=` Q${x} ${y} ${x+Math.sin(a2)*r} ${y-Math.cos(a2)*r}`}
+  return `<path d="${d}" fill="#C8FF2E" stroke="none" transform="rotate(${a} ${x} ${y})"/>`}
+const GL=[[SX+70,SY+200],[SX+360,SY+260],[SX+120,SY+520],[SX+330,SY+640],[SX+210,SY+800]];
+const MINI=[[-.3,380],[.35,700],[.85,250],[1.4,820],[1.95,470]];
+const DART=s=>`<polygon points="0,${-40*s} ${-34*s},${34*s} 0,${22*s} ${34*s},${34*s}" fill="#F5F5FA" stroke="#C9B994" stroke-width="2"/><line x1="0" y1="${-40*s}" x2="0" y2="${22*s}" stroke="#C9B994" stroke-width="2"/>`;
+const OSRC=[[-120,700],[1200,880],[540,-140]];
+
+function render(t){
+  $('dots').style.transform=`translate(${-t*12}px,${-t*20}px)`;
+  $('g1').style.transform=`translate(${Math.sin(t*.5)*70}px,${Math.cos(t*.4)*60}px)`;$('g2').style.transform=`translate(${Math.cos(t*.45)*70}px,${Math.sin(t*.35)*70}px)`;
+  let sx=0,sy=0;for(const [t0,a] of SH2){const d=t-t0;if(d>0&&d<.35){const k=Math.pow(1-d/.35,2);sx+=Math.sin(d*97)*a*k;sy+=Math.cos(d*83)*a*.6*k}}
+  $('world').style.transform=`translate(${sx}px,${sy}px)`;grain(Math.round(t*60));
+  let fl=0;for(const [t0,a] of [[T.drop,.38],[T.t6b,.2],[T.fly1,.12],[T.wave1,.12]]){const d=t-t0;if(d>=0&&d<.35)fl=Math.max(fl,a*(1-d/.35))}$('flashL').style.opacity=fl;
+
+  if(show('sMain',t,0,18.1)){
+    hline($('h0a'),t,T.hookA,T.hookOut,.22);hline($('h0b'),t,T.hookB,T.hookOut,.22);
+    H.forEach((id,i)=>{hline($(id+'a'),t,T.hA[i],T.hOut[i],.4);hline($(id+'b'),t,T.hA[i]+.15,T.hOut[i],.4)});
+    const sb=$('sub0');if(t<T.sub||t>2.7)sb.style.opacity=0;else{const p=eOC(P(t,T.sub,.4)),q=eIO(P(t,2.4,.3));sb.style.opacity=p*(1-q);sb.style.transform=`translateY(${(1-p)*24-q*40}px)`}
+    // bin + falling flyers
+    const bo=Math.min(1,P(t,0,.3))*(1-eIO(P(t,3.0,.4)));const bdy=eIC(P(t,3.0,.4))*240;
+    for(const id of ['bin','binF']){$(id).setAttribute('opacity',bo);$(id).setAttribute('transform',`translate(0 ${bdy})`)}
+    let mh='';MINI.forEach(([t0,x0],k)=>{const p=P(t,t0,1.15);if(p<=0||p>=1)return;const e=eIC(p);const x=lerp(x0,540+(k-2)*22,e)+Math.sin(p*9+k)*30*(1-e),y=lerp(-180,1760,e),r=(k%2?1:-1)*p*400+k*30;
+      mh+=`<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-55" y="-75" width="110" height="150" fill="${C0}" stroke="#CDBF9F" stroke-width="2"/><rect x="-55" y="-75" width="110" height="30" fill="#D9261C"/><rect x="-35" y="-30" width="70" height="8" fill="#1B2A8A"/><rect x="-40" y="5" width="80" height="6" fill="#999"/><rect x="-40" y="22" width="80" height="6" fill="#999"/></g>`});
+    $('minis').innerHTML=mh;
+    // paper
+    const pt=paperT(t),g=geom(t);const pgv=t<T.fly1;$('pg').style.display=pgv?'':'none';
+    if(pgv){$('pg').setAttribute('transform',`translate(${pt.x} ${pt.y}) rotate(${pt.r}) scale(${pt.s})`);$('pg').setAttribute('opacity',1-(pt.fade||0));
+      $('LB').setAttribute('points',pts(g.lb));$('RB').setAttribute('points',pts(g.rb));$('LF').setAttribute('points',pts(g.lf));$('RF').setAttribute('points',pts(g.rf));
+      $('LB').setAttribute('fill',g.eW>0?C0:C0);$('RB').setAttribute('fill',g.rs<0?CB:C0);
+      $('LF').setAttribute('fill',g.eW>.3?CK:(g.eL>.5?CF:C0));$('RF').setAttribute('fill',g.eW>.3?CK:(g.rs<0?CB:(g.eR>.5?CF:C0)));
+      $('LF').setAttribute('stroke-opacity',g.eL>0?1:0);$('RF').setAttribute('stroke-opacity',g.eR>0?1:0);
+      $('rg').setAttribute('transform',`scale(${Math.abs(g.rs)<.02?.02:g.rs} 1) skewY(${Math.sin(Math.PI*g.eH)*-6})`);
+      $('crease').setAttribute('opacity',t>=T.fH[1]?1:0);$('crease').setAttribute('y1',lerp(-300,-330,g.eW));$('crease').setAttribute('y2',lerp(300,250,g.eW));
+      $('ftx').setAttribute('opacity',1-P(t,T.fL[0]-.1,.3));}
+    // trail
+    const tr=$('trail');if(t>=T.fly0&&t<T.fly1+.6){const s=flightS(t);let d='';for(let k=0;k<=40;k++){const q=fpath(s*k/40);d+=(k?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}
+      tr.setAttribute('d',d);tr.setAttribute('opacity',1-P(t,T.fly1,.5));tr.setAttribute('stroke-dashoffset',-t*120)}else tr.setAttribute('opacity',0);
+    // phone
+    const fo=eIC(P(t,T.outro0,.45));let rs=1;
+    for(const [c,a] of [[T.fly1,.05],[T.wave1,.035]]){const q=P(t,c,.35);if(q>0&&q<1)rs+=a*Math.sin(Math.PI*q)}
+    const pi=eOC(P(t,T.phone,.6));const tl=$('tilt');tl.style.opacity=Math.min(pi*2,1)*(1-fo);
+    const ty=(1-pi)*600+fo*80;tl.style.transform=`translateY(${ty}px) scale(${rs*(1-.12*fo)*(.85+.15*pi)})`;
+    // skeleton unfold + wave paint
+    const sk=$('skel');[...sk.children].forEach((b,k)=>{const p=eOB(P(t,T.unf+k*.07,.4));b.style.transform=`rotateX(${(1-p)*88}deg)`;b.style.opacity=t<T.unf+k*.07?0:1});
+    sk.style.background=t<T.unf?'#12121B':'#EFE6D3';
+    const we=eIO(P(t,T.wave0,T.wave1-T.wave0));const wy=we*900-20;sk.style.clipPath=`inset(${Math.max(0,wy)}px 0 0 0)`;
+    const wa=t>=T.wave0&&t<T.wave1+.2;const wo=wa?1-P(t,T.wave1,.2):0;$('wvb').style.opacity=wo;$('wvl').style.opacity=wo;
+    $('wvb').style.transform=`translateY(${wy-150}px)`;$('wvl').style.transform=`translateY(${wy-6}px)`;
+    // shop
+    const ch=$('chM');{const on=t>=T.size;ch.style.background=on?'#C8643C':'#fff';ch.style.color=on?'#fff':'#6B5A52';ch.style.borderColor=on?'#C8643C':'#E2D3C5';
+      const q=t>=T.size&&t<T.size+.25?Math.sin(Math.PI*P(t,T.size,.25)):0;ch.style.transform=`scale(${1-.08*q})`}
+    const bt=$('BTN');{const on=t>=T.btn;bt.style.background=on?'#C8643C':'#2A1E1A';bt.textContent=on?'Səbətdə ✓':'Səbətə at';
+      const q=t>=T.btn&&t<T.btn+.25?Math.sin(Math.PI*P(t,T.btn,.25)):0;bt.style.transform=`scale(${1-.06*q})`}
+    const bn2=$('bagn');pop(bn2,t,T.btn+.05,{d:.35,y:10,s:.3});
+    const ts=$('toast');pop(ts,t,T.toast,{d:.45,y:30,s:.7});if(t>T.hOut[3]-.2)ts.style.opacity=(+ts.style.opacity)*(1-P(t,T.hOut[3]-.2,.3));
+    // incoming paper-plane orders
+    let oh='';T.planes.forEach((w,k)=>{const p=P(t,w-.6,.6);if(p<=0||p>=1)return;const e=eIC(p);const a=OSRC[k],b=[540,1060+ty];const c=[(a[0]+b[0])/2+(k-1)*160,(a[1]+b[1])/2-220];
+      const x=(1-e)*(1-e)*a[0]+2*(1-e)*e*c[0]+e*e*b[0],y=(1-e)*(1-e)*a[1]+2*(1-e)*e*c[1]+e*e*b[1];
+      const dx=2*(1-e)*(c[0]-a[0])+2*e*(b[0]-c[0]),dy=2*(1-e)*(c[1]-a[1])+2*e*(b[1]-c[1]);const ang=Math.atan2(dy,dx)*180/Math.PI+90;
+      oh+=`<g transform="translate(${x} ${y}) rotate(${ang}) scale(${lerp(1.6,.5,e)})" opacity="${1-P(t,w-.08,.08)}">${DART(1)}</g>`});
+    $('orders').innerHTML=oh;
+    const bn=$('ban');{let o=0,y=-30;T.planes.forEach((w,k)=>{const end=k<2?T.planes[k+1]-.05:T.outro0;if(t>=w&&t<end){const q=eOC(P(t,w,.3));o=q*(1-P(t,end-.2,.2));y=(1-q)*-40}});bn.style.opacity=o;bn.style.transform=`translateY(${y}px)`;
+      const nm=['Köynək M','Gödəkcə L','Köynək S'];let k=0;T.planes.forEach((w,i)=>{if(t>=w)k=i});bn.lastChild.textContent='Yeni sifariş · '+nm[k]}
+    const cn=$('cnt');pop(cn,t,T.planes[0],{d:.45,y:30,s:.7});if(t>T.outro0-.1)cn.style.opacity=(+cn.style.opacity)*(1-P(t,T.outro0-.1,.3));
+    {let n=1;T.planes.forEach((w,i)=>{if(t>=w)n=i+1});$('cntn').textContent=n;let q=0;T.planes.forEach(w=>{if(t>=w&&t<w+.3)q=Math.sin(Math.PI*P(t,w,.3))});cn.style.transform+=` scale(${1+.1*q})`}
+    const c=curState(t);
+    const bx=$('bx');if(t>=T.catch-.05&&t<T.fL[0]){pop(bx,t,T.catch-.05,{d:.35,y:30,s:.5});bx.style.left=(c.x+60)+'px';bx.style.top=(c.y-120)+'px';if(t>T.fL[0]-.25)bx.style.opacity=(+bx.style.opacity)*(1-P(t,T.fL[0]-.25,.2))}else bx.style.opacity=0;
+    let fx='';
+    if(t>=T.catch&&t<T.catch+.45)fx+=lines(c.x,c.y,8,40,26,P(t,T.catch,.45),'#C8FF2E',5);
+    for(const [c2,lp] of [[T.fL[1],[0,-80]],[T.fR[1],[0,-80]],[T.fH[1],[-220,120]],[T.fW[1],[0,0]]]){if(t>=c2&&t<c2+.4){const q=loc(paperT(c2),lp);fx+=lines(q[0],q[1],7,30,20,P(t,c2,.4),'#C8FF2E',5)}}
+    if(t>=T.fly1&&t<T.fly1+.5)fx+=lines(540,1060+ty,12,120,40,P(t,T.fly1,.5),'#C8FF2E',6);
+    if(t>=T.wave1&&t<T.wave1+.6)fx+=lines(540,1060,12,260,50,P(t,T.wave1,.6),'#C8FF2E',6);
+    [0,1,2,3,4].forEach(k=>{const g2=T.wave1+.1+k*.2;if(t>=g2&&t<g2+.7){const q=P(t,g2,.7);fx+=star(GL[k][0],GL[k][1]+ty,46*Math.sin(Math.PI*q),q*90)}});
+    if(t>=T.size&&t<T.size+.5)fx+=lines(CHM[0],CHM[1],8,26,24,P(t,T.size,.5),'#C8FF2E',5);
+    if(t>=T.btn&&t<T.btn+.5)fx+=lines(BTP[0],BTP[1],8,40,30,P(t,T.btn,.5),'#C8FF2E',5);
+    T.planes.forEach(w=>{if(t>=w&&t<w+.45)fx+=lines(540,1060+ty,9,70,28,P(t,w,.45),'#C8FF2E',5)});
+    $('fxg').innerHTML=fx;
+    const cc=$('cc');cc.style.opacity=c.vis?1:0;
+    cc.style.transform=`translate(${c.x-10}px,${c.y-10}px) rotate(${c.rot}deg) scale(${c.sx},${c.sy})`;
+    const bl2=(t%2.7)<.12;const ey=bl2?.15:Math.min(c.eye,1);
+    $('eyes').setAttribute('transform',`translate(${c.lx} ${15.5*(1-ey)}) scale(${c.eye>1?c.eye:1} ${ey*(c.eye>1?c.eye:1)})`);
+  }
+
+{{S6}}
+}
+window.render=render;render(0);
+window.measure=()=>[...document.querySelectorAll('.ln,#l6b,#l6a,#toast,#cnt,#ban')].map(e=>[e.id||e.textContent.slice(0,14),Math.round(e.getBoundingClientRect().width),Math.round(e.getBoundingClientRect().left)]);
+</script>
+</body>
+</html>
