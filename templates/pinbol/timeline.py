@@ -1,4 +1,4 @@
-"""Timeline: "Müştəri gəlib-gedir?" — PINBALL table: customer ball drains (no order button), lime Sifariş target drops in, ball lands on it; pieces fly into the toy-shop site; lime wave; orders = lime balls. Drop "Qoy müştəri qalsın."; logo outro.
+"""Timeline: "Müştəri gəlib-gedir?" — PINBALL table: customer ball drains (no order button), lime Sifariş target drops in, ball lands on it; pieces fly into the toy-shop site; lime wave; orders = lime balls. Drop "Qoy müştəri qalsın."; logo outro."""
 FPS = 30
 RENDER_FPS = 60
 DURATION = 24.0
